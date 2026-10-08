@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>शक्ति के 48 नियम — नोट्स, माइंडमैप, उदाहरण व उपयोग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Mukta:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f3ea; --bg2:#efe8d8; --surface:#fffdf8; --surface2:#f3ecdc;
+  --border:rgba(26,34,56,0.13); --text:#1a2238; --text-dim:#5c6072;
+  --gold:#b8860b; --gold2:#c9a227; --navy:#101a30;
+  --font-hi:'Tiro Devanagari Hindi', Georgia, serif;
+  --font-body:'Mukta','Noto Sans Devanagari',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+  --font-en:'Instrument Serif', Georgia, serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0c1424; --bg2:#0f1a2e; --surface:#131f36; --surface2:#182741;
+    --border:rgba(232,220,190,0.13); --text:#ece6d7; --text-dim:#a7a294;
+    --gold:#e8c85a; --gold2:#d4a73a; --navy:#f4ead2;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:var(--font-body); font-size:17px; line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(900px 520px at 12% -6%, color-mix(in srgb, var(--gold2) 16%, transparent), transparent 60%),
+    radial-gradient(760px 520px at 100% 4%, color-mix(in srgb, #3f5f8a 12%, transparent), transparent 55%);
+  background-attachment:fixed;
+}
+a{color:inherit}
+.wrap{display:flex; gap:34px; max-width:1560px; margin:0 auto; padding:0 26px}
+main{flex:1; min-width:0; padding-bottom:80px}
+
+/* sidebar */
+.side{
+  width:280px; flex:0 0 280px; align-self:flex-start; position:sticky; top:0;
+  height:100vh; overflow-y:auto; padding:26px 8px 40px 0; border-right:1px solid var(--border);
+  scrollbar-width:thin;
+}
+.side-title{font-family:var(--font-mono); font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin:6px 0 16px}
+.side-theme{font-family:var(--font-hi); font-weight:600; font-size:16px; margin:16px 0 7px; display:flex; align-items:center; gap:8px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--tc);flex:0 0 auto;box-shadow:0 0 0 3px color-mix(in srgb,var(--tc) 22%,transparent)}
+.side-laws{display:flex;flex-direction:column;gap:1px;padding-left:17px;border-left:1px solid var(--border);margin-left:4px}
+.side-laws a{font-size:14px;color:var(--text-dim);text-decoration:none;padding:2px 6px;border-radius:6px;line-height:1.4}
+.side-laws a b{font-family:var(--font-mono);color:var(--gold);font-size:12.5px;margin-right:5px}
+.side-laws a:hover{background:var(--surface2);color:var(--text)}
+
+/* hero */
+.hero{padding:64px 0 34px; border-bottom:1px solid var(--border); margin-bottom:34px}
+.kicker{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+h1{font-family:var(--font-hi);font-size:clamp(40px,6.4vw,78px);line-height:1.08;margin:0 0 6px;font-weight:700}
+.hero .sub-en{font-family:var(--font-en);font-style:italic;font-size:clamp(20px,2.6vw,30px);color:var(--text-dim);margin-bottom:20px}
+.hero p.lead{font-size:19px;max-width:64ch;color:var(--text-dim)}
+.hero .by{font-family:var(--font-mono);font-size:13px;color:var(--gold);margin-top:16px}
+
+h2.sec{font-family:var(--font-hi);font-size:clamp(26px,3.4vw,40px);margin:0 0 6px;font-weight:700}
+.sec-kicker{font-family:var(--font-mono);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.section{margin:54px 0; scroll-margin-top:20px}
+.section > p.intro{max-width:70ch;color:var(--text-dim)}
+
+.note{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:12px;padding:18px 22px;margin:24px 0;max-width:80ch}
+.note strong{color:var(--gold);font-family:var(--font-hi)}
+
+/* mindmap */
+.mm-frame{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:10px;box-shadow:0 18px 44px -28px rgba(0,0,0,.4)}
+.mindmap-svg{width:100%;height:auto;display:block;color:var(--text-dim)}
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:22px}
+.leg{background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--tc);border-radius:12px;padding:14px 16px}
+.leg-h{font-family:var(--font-hi);font-weight:600;display:flex;align-items:center;gap:8px;margin-bottom:9px}
+.leg-links{display:flex;flex-wrap:wrap;gap:6px}
+.leg-links a{font-family:var(--font-mono);font-size:12.5px;text-decoration:none;background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:2px 8px;color:var(--text-dim)}
+.leg-links a:hover{color:var(--gold);border-color:var(--tc)}
+
+/* chips */
+.chip{font-family:var(--font-mono);font-size:12px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:3px 11px;color:var(--text-dim);text-decoration:none;white-space:nowrap}
+.chip:hover{color:var(--gold)}
+.chip-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+
+/* table */
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:16px;background:var(--surface);margin-top:22px}
+table.ref{border-collapse:collapse;width:100%;min-width:720px;font-size:15.5px}
+table.ref thead th{position:sticky;top:0;background:var(--surface2);text-align:left;font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);padding:13px 16px;border-bottom:1px solid var(--border)}
+table.ref td{padding:11px 16px;border-bottom:1px solid var(--border);vertical-align:top}
+table.ref tbody tr:nth-child(even){background:color-mix(in srgb,var(--surface2) 55%,transparent)}
+table.ref tbody tr:hover{background:color-mix(in srgb,var(--gold2) 12%,transparent)}
+td.tnum{font-family:var(--font-mono);color:var(--gold);font-weight:600;width:56px}
+td.tnum a{text-decoration:none}
+td.ten{font-family:var(--font-en);font-style:italic;color:var(--text-dim)}
+td.thi{font-weight:500}
+
+/* law cards */
+.law{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:26px 28px;margin:22px 0;scroll-margin-top:20px;position:relative;overflow:hidden}
+.law::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--tc)}
+.law-head{display:flex;align-items:flex-start;gap:18px;margin-bottom:6px}
+.law-num{font-family:var(--font-mono);font-size:24px;font-weight:600;color:#fff;background:var(--tc);width:52px;height:52px;flex:0 0 52px;border-radius:14px;display:flex;align-items:center;justify-content:center}
+.law-titles{min-width:0}
+.law-hi{font-family:var(--font-hi);font-size:clamp(20px,2.5vw,27px);margin:2px 0 2px;font-weight:700;line-height:1.3}
+.law-en{font-family:var(--font-en);font-style:italic;color:var(--text-dim);font-size:16px}
+.law-meta{margin:8px 0 4px 70px}
+.gist{font-family:var(--font-hi);font-size:17.5px;background:var(--surface2);border:1px dashed var(--border);border-radius:12px;padding:12px 18px;margin:14px 0 18px;color:var(--text)}
+.law-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:20px 26px;align-items:start}
+.blk h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 8px}
+.blk-detail{grid-row:span 2}
+.blk p{margin:0 0 11px;color:var(--text)}
+.blk ul{margin:0;padding-left:0;list-style:none}
+.blk ul li{position:relative;padding-left:22px;margin-bottom:9px;color:var(--text-dim)}
+.blk ul li::before{content:"";position:absolute;left:2px;top:11px;width:7px;height:7px;border-radius:50%;background:var(--tc)}
+.caution{margin-top:20px;background:color-mix(in srgb,var(--gold2) 12%,transparent);border:1px solid color-mix(in srgb,var(--gold2) 34%,transparent);border-radius:12px;padding:14px 18px}
+.caution h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 6px}
+.caution p{margin:0;color:var(--text-dim);font-size:16px}
+
+footer{border-top:1px solid var(--border);margin-top:60px;padding:30px 0 10px;color:var(--text-dim);font-size:15px;max-width:80ch}
+.totop{position:fixed;right:22px;bottom:22px;background:var(--navy);color:var(--bg);border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-family:var(--font-mono);font-size:18px;box-shadow:0 10px 26px -10px rgba(0,0,0,.6);z-index:40}
+@media (prefers-color-scheme: dark){.totop{color:#0c1424}}
+
+@media (max-width:1000px){
+  .wrap{flex-direction:column;gap:0;padding:0 18px}
+  .side{position:static;width:auto;flex:none;height:auto;border-right:none;border-bottom:1px solid var(--border);padding:18px 0}
+  .side-laws{display:flex;flex-wrap:wrap;flex-direction:row;border-left:none;padding-left:0;margin-left:0;gap:5px}
+  .side-theme{margin:12px 0 4px}
+  .law-grid{grid-template-columns:1fr}
+  .blk-detail{grid-row:auto}
+  .law-meta{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="side" aria-label="विषय सूची">
+<div class="side-title">विषय-सूची</div>
+<div class="side-theme" style="--tc:#c9a227"><span class="dot"></span>छवि व प्रतिष्ठा</div>
+<div class="side-laws">
+<a href="#law-5"><b>5</b> बहुत कुछ प्रतिष्ठा पर निर्भर करता है — उसकी रक्षा करें</a>
+<a href="#law-6"><b>6</b> हर कीमत पर ध्यान आकर्षित करें</a>
+<a href="#law-25"><b>25</b> स्वयं को फिर से गढ़ें</a>
+<a href="#law-30"><b>30</b> अपनी उपलब्धियों को सहज दिखाएँ</a>
+<a href="#law-34"><b>34</b> अपने ही अंदाज़ में शाही बनें: राजा की तरह व्यवहार करें, ताकि आपसे राजा जैसा व्यवहार हो</a>
+<a href="#law-37"><b>37</b> प्रभावशाली दृश्य/नाटक रचें</a>
+<a href="#law-46"><b>46</b> कभी अत्यधिक परिपूर्ण न दिखें</a>
+</div>
+<div class="side-theme" style="--tc:#7d5a3c"><span class="dot"></span>रहस्य व छिपाव</div>
+<div class="side-laws">
+<a href="#law-3"><b>3</b> अपने इरादे छिपाकर रखें</a>
+<a href="#law-4"><b>4</b> जितना आवश्यक हो, उससे कम बोलें</a>
+<a href="#law-14"><b>14</b> मित्र का रूप धरें, गुप्तचर का काम करें</a>
+<a href="#law-21"><b>21</b> मूर्ख का रूप धरकर दूसरे मूर्ख को पकड़ें — अपने शिकार से अधिक बेवकूफ़ दिखें</a>
+<a href="#law-38"><b>38</b> मन में जो चाहें सोचें, पर व्यवहार दूसरों जैसा करें</a>
+<a href="#law-44"><b>44</b> दर्पण प्रभाव से निःशस्त्र और विक्षुब्ध करें</a>
+<a href="#law-48"><b>48</b> निराकार/अनिश्चित रूप धारण करें</a>
+</div>
+<div class="side-theme" style="--tc:#a63d40"><span class="dot"></span>शत्रु व मित्र</div>
+<div class="side-laws">
+<a href="#law-2"><b>2</b> मित्रों पर अधिक भरोसा न करें; शत्रुओं का उपयोग करना सीखें</a>
+<a href="#law-10"><b>10</b> संक्रमण से बचें: दुखी और अभागों से दूरी रखें</a>
+<a href="#law-15"><b>15</b> अपने शत्रु को पूरी तरह कुचल दें</a>
+<a href="#law-19"><b>19</b> जानें कि आप किससे पेश आ रहे हैं — गलत व्यक्ति को नाराज़ न करें</a>
+<a href="#law-42"><b>42</b> गड़रिये पर चोट करें, भेड़ें तितर-बितर हो जाएँगी</a>
+<a href="#law-43"><b>43</b> दूसरों के मन और हृदय पर काम करें</a>
+</div>
+<div class="side-theme" style="--tc:#2e6f63"><span class="dot"></span>निर्भरता व नियंत्रण</div>
+<div class="side-laws">
+<a href="#law-11"><b>11</b> लोगों को अपना आश्रित बनाकर रखना सीखें</a>
+<a href="#law-12"><b>12</b> चुनिंदा ईमानदारी और उदारता से प्रतिद्वंद्वी को निःशस्त्र करें</a>
+<a href="#law-13"><b>13</b> मदद माँगते समय स्वार्थ को छुएँ, दया या कृतज्ञता को नहीं</a>
+<a href="#law-27"><b>27</b> लोगों की आस्था की भूख का उपयोग करके अनुयायी बनाएँ</a>
+<a href="#law-31"><b>31</b> विकल्पों पर नियंत्रण रखें: दूसरों से वही पत्ते खिलवाएँ जो आप चाहते हैं</a>
+<a href="#law-32"><b>32</b> लोगों की कल्पनाओं से खेलें</a>
+<a href="#law-33"><b>33</b> हर व्यक्ति का कमज़ोर बिंदु खोजें</a>
+</div>
+<div class="side-theme" style="--tc:#b07d2b"><span class="dot"></span>दरबारी कूटनीति</div>
+<div class="side-laws">
+<a href="#law-1"><b>1</b> अपने स्वामी/मालिक से कभी आगे न बढ़ें</a>
+<a href="#law-24"><b>24</b> आदर्श दरबारी की भूमिका निभाएँ</a>
+<a href="#law-41"><b>41</b> किसी महान व्यक्ति के पदचिह्नों पर सीधे न चलें</a>
+<a href="#law-45"><b>45</b> बदलाव की बात करें, पर एक बार में बहुत ज़्यादा सुधार न करें</a>
+</div>
+<div class="side-theme" style="--tc:#3f5f8a"><span class="dot"></span>समय व मंचन</div>
+<div class="side-laws">
+<a href="#law-8"><b>8</b> दूसरों को अपनी ओर आने पर मजबूर करें — ज़रूरत पड़े तो चारा डालें</a>
+<a href="#law-16"><b>16</b> अनुपस्थिति से सम्मान और प्रतिष्ठा बढ़ाएँ</a>
+<a href="#law-17"><b>17</b> दूसरों को अनिश्चितता में रखें: अप्रत्याशितता का आभा बनाएँ</a>
+<a href="#law-28"><b>28</b> साहस के साथ कार्रवाई में उतरें</a>
+<a href="#law-35"><b>35</b> समय की कला में माहिर बनें</a>
+<a href="#law-47"><b>47</b> लक्ष्य से आगे न बढ़ें; जीत में रुकना सीखें</a>
+</div>
+<div class="side-theme" style="--tc:#6d7b3a"><span class="dot"></span>आत्म-संयम व स्वतंत्रता</div>
+<div class="side-laws">
+<a href="#law-7"><b>7</b> दूसरों से काम कराएँ, पर श्रेय स्वयं लें</a>
+<a href="#law-9"><b>9</b> अपने कार्यों से जीतें, बहस से कभी नहीं</a>
+<a href="#law-18"><b>18</b> अपनी रक्षा के लिए किले न बनाएँ — अकेलापन खतरनाक है</a>
+<a href="#law-20"><b>20</b> किसी से पूरी तरह बंधे न रहें</a>
+<a href="#law-22"><b>22</b> समर्पण की चाल अपनाएँ: कमज़ोरी को शक्ति में बदलें</a>
+<a href="#law-23"><b>23</b> अपनी शक्ति को केंद्रित करें</a>
+<a href="#law-26"><b>26</b> अपने हाथ साफ़ रखें</a>
+<a href="#law-29"><b>29</b> अंत तक की योजना बनाएँ</a>
+<a href="#law-36"><b>36</b> जो आपको नहीं मिल सकता उसकी उपेक्षा करें: अनदेखा करना ही सर्वोत्तम बदला है</a>
+<a href="#law-39"><b>39</b> मछली पकड़ने के लिए पानी को गड्ढा करें</a>
+<a href="#law-40"><b>40</b> मुफ़्त की चीज़ से बचें</a>
+</div>
+</nav>
+<main>
+  <section class="hero">
+    <div class="kicker">Robert Greene · शक्ति, रणनीति और मानव स्वभाव</div>
+    <h1>शक्ति के 48 नियम</h1>
+    <div class="sub-en">The 48 Laws of Power — हिंदी नोट्स, माइंडमैप, उदाहरण व उपयोग</div>
+    <p class="lead">रॉबर्ट ग्रीन की प्रसिद्ध पुस्तक “The 48 Laws of Power” मानव इतिहास के दरबारों, राजनीति और व्यापार से निकाले गए 48 शक्ति-नियम प्रस्तुत करती है। यह पृष्ठ प्रत्येक नियम का विस्तृत हिंदी विवेचन, ऐतिहासिक एवं आधुनिक उदाहरण, व्यावहारिक उपयोग और उसका उलटा पक्ष एक ही जगह देता है — साथ में सभी 48 नियमों का एक दृश्य माइंडमैप।</p>
+    <div class="by">कुल 48 नियम · 7 विषय-समूह · प्रत्येक नियम पर व्याख्या + उदाहरण + उपयोग</div>
+  </section>
+
+  <section class="section" id="parichay">
+    <div class="sec-kicker">परिचय</div>
+    <h2 class="sec">पुस्तक और इसकी सोच</h2>
+    <p class="intro">ग्रीन का तर्क है कि शक्ति एक नैतिक आदर्श नहीं, बल्कि एक खेल है जिसे कुछ लोग सचेत रूप से खेलते हैं और बाकी अनजाने में हार जाते हैं। उन्होंने इतिहास के शासकों, दरबारियों, कूटनीतिज्ञों और व्यापारियों के जीवन से नियम निकाले — जैसे मैकियावेली, लुई चौदह का दरबार, बिस्मार्क, चाणक्य और तालीरां। पुस्तक को कई पाठक “शक्ति का मैनुअल” मानते हैं और कई आलोचक इसे अनैतिक व जोड़-तोड़ भरा बताते हैं।</p>
+    <div class="note"><strong>पढ़ने का सही तरीका:</strong> इन नियमों को केवल दूसरों को चलाने के हथियार के रूप में न लें। इनका सबसे बड़ा लाभ यह है कि आप दूसरों की चालें पहचान सकें, अपनी रक्षा कर सकें और अपने करियर व रिश्तों को समझदारी से आगे बढ़ा सकें। सत्ता और नैतिकता में संतुलन रखें — कुछ नियम कठोर और जोड़-तोड़ वाले हैं, इसलिए इन्हें विवेक से लागू करें, अंधाधुंध नहीं।</div>
+  </section>
+
+  <section class="section" id="mindmap">
+    <div class="sec-kicker">दृश्य अवलोकन</div>
+    <h2 class="sec">माइंडमैप — 7 विषय, 48 नियम</h2>
+    <p class="intro">सभी 48 नियमों को उनके स्वभाव के अनुसार 7 विषय-समूहों में बाँटा गया है। बीच के नोड से निकलने वाली प्रत्येक शाखा एक विषय है, और बाहरी वृत्त पर अंकित हर संख्या उस विषय के अंतर्गत आने वाला नियम है। किसी भी अंक पर जाने के लिए नीचे दिए लिंक या विषय-सूची का उपयोग करें।</p>
+    <div class="mm-frame"><svg viewBox="0 0 1800 1800" xmlns="http://www.w3.org/2000/svg" class="mindmap-svg" role="img" aria-label="शक्ति के 48 नियमों का माइंडमैप">
+<defs><filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#0b1220" flood-opacity="0.28"/></filter></defs>
+<circle cx="900.0" cy="900.0" r="360.0" fill="none" stroke="currentColor" stroke-opacity="0.06" stroke-width="1.5"/>
+<circle cx="900.0" cy="900.0" r="700.0" fill="none" stroke="currentColor" stroke-opacity="0.06" stroke-width="1.5"/>
+<circle cx="900.0" cy="900.0" r="860" fill="none" stroke="currentColor" stroke-opacity="0.06" stroke-width="1.5"/>
+<line x1="900.0" y1="900.0" x2="1059.2" y2="577.1" stroke="#c9a227" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
+<line x1="1059.2" y1="577.1" x2="984.1" y2="205.1" stroke="#c9a227" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="1059.2" y1="577.1" x2="1061.6" y2="218.9" stroke="#c9a227" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="1059.2" y1="577.1" x2="1137.1" y2="241.4" stroke="#c9a227" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="1059.2" y1="577.1" x2="1209.6" y2="272.2" stroke="#c9a227" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="1059.2" y1="577.1" x2="1278.2" y2="310.9" stroke="#c9a227" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="1059.2" y1="577.1" x2="1341.9" y2="357.2" stroke="#c9a227" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="1059.2" y1="577.1" x2="1400.1" y2="410.2" stroke="#c9a227" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="900.0" y1="900.0" x2="1253.1" y2="829.8" stroke="#7d5a3c" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
+<line x1="1253.1" y1="829.8" x2="1502.5" y2="543.7" stroke="#7d5a3c" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="1253.1" y1="829.8" x2="1538.7" y2="613.6" stroke="#7d5a3c" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="1253.1" y1="829.8" x2="1566.9" y2="687.2" stroke="#7d5a3c" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="1253.1" y1="829.8" x2="1586.5" y2="763.4" stroke="#7d5a3c" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="1253.1" y1="829.8" x2="1597.5" y2="841.4" stroke="#7d5a3c" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="1253.1" y1="829.8" x2="1599.7" y2="920.2" stroke="#7d5a3c" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="1253.1" y1="829.8" x2="1593.0" y2="998.6" stroke="#7d5a3c" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="900.0" y1="900.0" x2="1185.6" y2="1119.2" stroke="#a63d40" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
+<line x1="1185.6" y1="1119.2" x2="1551.9" y2="1155.1" stroke="#a63d40" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="1185.6" y1="1119.2" x2="1519.1" y2="1226.7" stroke="#a63d40" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="1185.6" y1="1119.2" x2="1478.4" y2="1294.2" stroke="#a63d40" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="1185.6" y1="1119.2" x2="1430.5" y2="1356.7" stroke="#a63d40" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="1185.6" y1="1119.2" x2="1375.8" y2="1413.4" stroke="#a63d40" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="1185.6" y1="1119.2" x2="1315.1" y2="1463.6" stroke="#a63d40" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="900.0" y1="900.0" x2="923.5" y2="1259.2" stroke="#2e6f63" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
+<line x1="923.5" y1="1259.2" x2="1174.6" y2="1543.9" stroke="#2e6f63" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="923.5" y1="1259.2" x2="1100.6" y2="1570.7" stroke="#2e6f63" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="923.5" y1="1259.2" x2="1024.0" y2="1588.9" stroke="#2e6f63" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="923.5" y1="1259.2" x2="945.8" y2="1598.5" stroke="#2e6f63" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="923.5" y1="1259.2" x2="867.0" y2="1599.2" stroke="#2e6f63" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="923.5" y1="1259.2" x2="788.7" y2="1591.1" stroke="#2e6f63" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="923.5" y1="1259.2" x2="711.8" y2="1574.2" stroke="#2e6f63" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="900.0" y1="900.0" x2="680.8" y2="1185.6" stroke="#b07d2b" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
+<line x1="680.8" y1="1185.6" x2="573.3" y2="1519.1" stroke="#b07d2b" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="680.8" y1="1185.6" x2="505.8" y2="1478.4" stroke="#b07d2b" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="680.8" y1="1185.6" x2="443.3" y2="1430.5" stroke="#b07d2b" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="680.8" y1="1185.6" x2="386.6" y2="1375.8" stroke="#b07d2b" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="900.0" y1="900.0" x2="552.3" y2="993.2" stroke="#3f5f8a" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
+<line x1="552.3" y1="993.2" x2="300.8" y2="1261.8" stroke="#3f5f8a" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="552.3" y1="993.2" x2="263.9" y2="1192.2" stroke="#3f5f8a" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="552.3" y1="993.2" x2="235.1" y2="1118.9" stroke="#3f5f8a" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="552.3" y1="993.2" x2="214.7" y2="1042.8" stroke="#3f5f8a" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="552.3" y1="993.2" x2="203.0" y2="965.0" stroke="#3f5f8a" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="552.3" y1="993.2" x2="200.1" y2="886.3" stroke="#3f5f8a" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="900.0" y1="900.0" x2="662.6" y2="629.3" stroke="#6d7b3a" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
+<line x1="662.6" y1="629.3" x2="228.8" y2="701.2" stroke="#6d7b3a" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="662.6" y1="629.3" x2="255.4" y2="627.1" stroke="#6d7b3a" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="662.6" y1="629.3" x2="290.2" y2="556.4" stroke="#6d7b3a" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="662.6" y1="629.3" x2="332.6" y2="490.0" stroke="#6d7b3a" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="662.6" y1="629.3" x2="382.3" y2="428.9" stroke="#6d7b3a" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="662.6" y1="629.3" x2="438.5" y2="373.7" stroke="#6d7b3a" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="662.6" y1="629.3" x2="500.5" y2="325.2" stroke="#6d7b3a" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="662.6" y1="629.3" x2="567.6" y2="284.0" stroke="#6d7b3a" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="662.6" y1="629.3" x2="638.9" y2="250.5" stroke="#6d7b3a" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="662.6" y1="629.3" x2="713.5" y2="225.3" stroke="#6d7b3a" stroke-opacity="0.28" stroke-width="1.6"/>
+<line x1="662.6" y1="629.3" x2="790.5" y2="208.6" stroke="#6d7b3a" stroke-opacity="0.28" stroke-width="1.6"/>
+<g class="leaf"><circle cx="984.1" cy="205.1" r="23" fill="#c9a227" filter="url(#soft)"/><text x="984.1" y="212.1" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">5</text></g>
+<g class="leaf"><circle cx="1061.6" cy="218.9" r="23" fill="#c9a227" filter="url(#soft)"/><text x="1061.6" y="225.9" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">6</text></g>
+<g class="leaf"><circle cx="1137.1" cy="241.4" r="23" fill="#c9a227" filter="url(#soft)"/><text x="1137.1" y="248.4" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">25</text></g>
+<g class="leaf"><circle cx="1209.6" cy="272.2" r="23" fill="#c9a227" filter="url(#soft)"/><text x="1209.6" y="279.2" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">30</text></g>
+<g class="leaf"><circle cx="1278.2" cy="310.9" r="23" fill="#c9a227" filter="url(#soft)"/><text x="1278.2" y="317.9" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">34</text></g>
+<g class="leaf"><circle cx="1341.9" cy="357.2" r="23" fill="#c9a227" filter="url(#soft)"/><text x="1341.9" y="364.2" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">37</text></g>
+<g class="leaf"><circle cx="1400.1" cy="410.2" r="23" fill="#c9a227" filter="url(#soft)"/><text x="1400.1" y="417.2" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">46</text></g>
+<g class="leaf"><circle cx="1502.5" cy="543.7" r="23" fill="#7d5a3c" filter="url(#soft)"/><text x="1502.5" y="550.7" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">3</text></g>
+<g class="leaf"><circle cx="1538.7" cy="613.6" r="23" fill="#7d5a3c" filter="url(#soft)"/><text x="1538.7" y="620.6" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">4</text></g>
+<g class="leaf"><circle cx="1566.9" cy="687.2" r="23" fill="#7d5a3c" filter="url(#soft)"/><text x="1566.9" y="694.2" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">14</text></g>
+<g class="leaf"><circle cx="1586.5" cy="763.4" r="23" fill="#7d5a3c" filter="url(#soft)"/><text x="1586.5" y="770.4" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">21</text></g>
+<g class="leaf"><circle cx="1597.5" cy="841.4" r="23" fill="#7d5a3c" filter="url(#soft)"/><text x="1597.5" y="848.4" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">38</text></g>
+<g class="leaf"><circle cx="1599.7" cy="920.2" r="23" fill="#7d5a3c" filter="url(#soft)"/><text x="1599.7" y="927.2" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">44</text></g>
+<g class="leaf"><circle cx="1593.0" cy="998.6" r="23" fill="#7d5a3c" filter="url(#soft)"/><text x="1593.0" y="1005.6" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">48</text></g>
+<g class="leaf"><circle cx="1551.9" cy="1155.1" r="23" fill="#a63d40" filter="url(#soft)"/><text x="1551.9" y="1162.1" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">2</text></g>
+<g class="leaf"><circle cx="1519.1" cy="1226.7" r="23" fill="#a63d40" filter="url(#soft)"/><text x="1519.1" y="1233.7" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">10</text></g>
+<g class="leaf"><circle cx="1478.4" cy="1294.2" r="23" fill="#a63d40" filter="url(#soft)"/><text x="1478.4" y="1301.2" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">15</text></g>
+<g class="leaf"><circle cx="1430.5" cy="1356.7" r="23" fill="#a63d40" filter="url(#soft)"/><text x="1430.5" y="1363.7" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">19</text></g>
+<g class="leaf"><circle cx="1375.8" cy="1413.4" r="23" fill="#a63d40" filter="url(#soft)"/><text x="1375.8" y="1420.4" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">42</text></g>
+<g class="leaf"><circle cx="1315.1" cy="1463.6" r="23" fill="#a63d40" filter="url(#soft)"/><text x="1315.1" y="1470.6" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">43</text></g>
+<g class="leaf"><circle cx="1174.6" cy="1543.9" r="23" fill="#2e6f63" filter="url(#soft)"/><text x="1174.6" y="1550.9" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">11</text></g>
+<g class="leaf"><circle cx="1100.6" cy="1570.7" r="23" fill="#2e6f63" filter="url(#soft)"/><text x="1100.6" y="1577.7" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">12</text></g>
+<g class="leaf"><circle cx="1024.0" cy="1588.9" r="23" fill="#2e6f63" filter="url(#soft)"/><text x="1024.0" y="1595.9" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">13</text></g>
+<g class="leaf"><circle cx="945.8" cy="1598.5" r="23" fill="#2e6f63" filter="url(#soft)"/><text x="945.8" y="1605.5" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">27</text></g>
+<g class="leaf"><circle cx="867.0" cy="1599.2" r="23" fill="#2e6f63" filter="url(#soft)"/><text x="867.0" y="1606.2" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">31</text></g>
+<g class="leaf"><circle cx="788.7" cy="1591.1" r="23" fill="#2e6f63" filter="url(#soft)"/><text x="788.7" y="1598.1" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">32</text></g>
+<g class="leaf"><circle cx="711.8" cy="1574.2" r="23" fill="#2e6f63" filter="url(#soft)"/><text x="711.8" y="1581.2" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">33</text></g>
+<g class="leaf"><circle cx="573.3" cy="1519.1" r="23" fill="#b07d2b" filter="url(#soft)"/><text x="573.3" y="1526.1" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">1</text></g>
+<g class="leaf"><circle cx="505.8" cy="1478.4" r="23" fill="#b07d2b" filter="url(#soft)"/><text x="505.8" y="1485.4" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">24</text></g>
+<g class="leaf"><circle cx="443.3" cy="1430.5" r="23" fill="#b07d2b" filter="url(#soft)"/><text x="443.3" y="1437.5" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">41</text></g>
+<g class="leaf"><circle cx="386.6" cy="1375.8" r="23" fill="#b07d2b" filter="url(#soft)"/><text x="386.6" y="1382.8" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">45</text></g>
+<g class="leaf"><circle cx="300.8" cy="1261.8" r="23" fill="#3f5f8a" filter="url(#soft)"/><text x="300.8" y="1268.8" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">8</text></g>
+<g class="leaf"><circle cx="263.9" cy="1192.2" r="23" fill="#3f5f8a" filter="url(#soft)"/><text x="263.9" y="1199.2" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">16</text></g>
+<g class="leaf"><circle cx="235.1" cy="1118.9" r="23" fill="#3f5f8a" filter="url(#soft)"/><text x="235.1" y="1125.9" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">17</text></g>
+<g class="leaf"><circle cx="214.7" cy="1042.8" r="23" fill="#3f5f8a" filter="url(#soft)"/><text x="214.7" y="1049.8" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">28</text></g>
+<g class="leaf"><circle cx="203.0" cy="965.0" r="23" fill="#3f5f8a" filter="url(#soft)"/><text x="203.0" y="972.0" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">35</text></g>
+<g class="leaf"><circle cx="200.1" cy="886.3" r="23" fill="#3f5f8a" filter="url(#soft)"/><text x="200.1" y="893.3" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">47</text></g>
+<g class="leaf"><circle cx="228.8" cy="701.2" r="23" fill="#6d7b3a" filter="url(#soft)"/><text x="228.8" y="708.2" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">7</text></g>
+<g class="leaf"><circle cx="255.4" cy="627.1" r="23" fill="#6d7b3a" filter="url(#soft)"/><text x="255.4" y="634.1" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">9</text></g>
+<g class="leaf"><circle cx="290.2" cy="556.4" r="23" fill="#6d7b3a" filter="url(#soft)"/><text x="290.2" y="563.4" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">18</text></g>
+<g class="leaf"><circle cx="332.6" cy="490.0" r="23" fill="#6d7b3a" filter="url(#soft)"/><text x="332.6" y="497.0" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">20</text></g>
+<g class="leaf"><circle cx="382.3" cy="428.9" r="23" fill="#6d7b3a" filter="url(#soft)"/><text x="382.3" y="435.9" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">22</text></g>
+<g class="leaf"><circle cx="438.5" cy="373.7" r="23" fill="#6d7b3a" filter="url(#soft)"/><text x="438.5" y="380.7" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">23</text></g>
+<g class="leaf"><circle cx="500.5" cy="325.2" r="23" fill="#6d7b3a" filter="url(#soft)"/><text x="500.5" y="332.2" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">26</text></g>
+<g class="leaf"><circle cx="567.6" cy="284.0" r="23" fill="#6d7b3a" filter="url(#soft)"/><text x="567.6" y="291.0" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">29</text></g>
+<g class="leaf"><circle cx="638.9" cy="250.5" r="23" fill="#6d7b3a" filter="url(#soft)"/><text x="638.9" y="257.5" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">36</text></g>
+<g class="leaf"><circle cx="713.5" cy="225.3" r="23" fill="#6d7b3a" filter="url(#soft)"/><text x="713.5" y="232.3" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">39</text></g>
+<g class="leaf"><circle cx="790.5" cy="208.6" r="23" fill="#6d7b3a" filter="url(#soft)"/><text x="790.5" y="215.6" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="JetBrains Mono, monospace">40</text></g>
+<g class="branch">
+<rect x="964.2" y="555.1" width="190.0" height="44" rx="14" fill="#c9a227" filter="url(#soft)"/>
+<text x="1059.2" y="583.1" text-anchor="middle" font-size="19" font-weight="600" fill="#fff" font-family="Mukta, sans-serif">छवि व प्रतिष्ठा</text>
+</g>
+<g class="branch">
+<rect x="1158.1" y="807.8" width="190.0" height="44" rx="14" fill="#7d5a3c" filter="url(#soft)"/>
+<text x="1253.1" y="835.8" text-anchor="middle" font-size="19" font-weight="600" fill="#fff" font-family="Mukta, sans-serif">रहस्य व छिपाव</text>
+</g>
+<g class="branch">
+<rect x="1090.6" y="1097.2" width="190.0" height="44" rx="14" fill="#a63d40" filter="url(#soft)"/>
+<text x="1185.6" y="1125.2" text-anchor="middle" font-size="19" font-weight="600" fill="#fff" font-family="Mukta, sans-serif">शत्रु व मित्र</text>
+</g>
+<g class="branch">
+<rect x="828.5" y="1228.2" width="190.0" height="62" rx="14" fill="#2e6f63" filter="url(#soft)"/>
+<text x="923.5" y="1255.2" text-anchor="middle" font-size="17" font-weight="600" fill="#fff" font-family="Mukta, sans-serif">निर्भरता</text>
+<text x="923.5" y="1277.2" text-anchor="middle" font-size="17" font-weight="600" fill="#fff" font-family="Mukta, sans-serif">व नियंत्रण</text>
+</g>
+<g class="branch">
+<rect x="585.8" y="1163.6" width="190.0" height="44" rx="14" fill="#b07d2b" filter="url(#soft)"/>
+<text x="680.8" y="1191.6" text-anchor="middle" font-size="19" font-weight="600" fill="#fff" font-family="Mukta, sans-serif">दरबारी कूटनीति</text>
+</g>
+<g class="branch">
+<rect x="457.3" y="971.2" width="190.0" height="44" rx="14" fill="#3f5f8a" filter="url(#soft)"/>
+<text x="552.3" y="999.2" text-anchor="middle" font-size="19" font-weight="600" fill="#fff" font-family="Mukta, sans-serif">समय व मंचन</text>
+</g>
+<g class="branch">
+<rect x="567.6" y="598.3" width="190.0" height="62" rx="14" fill="#6d7b3a" filter="url(#soft)"/>
+<text x="662.6" y="625.3" text-anchor="middle" font-size="17" font-weight="600" fill="#fff" font-family="Mukta, sans-serif">आत्म-संयम</text>
+<text x="662.6" y="647.3" text-anchor="middle" font-size="17" font-weight="600" fill="#fff" font-family="Mukta, sans-serif">व स्वतंत्रता</text>
+</g>
+<circle cx="900.0" cy="900.0" r="150" fill="#101a30" stroke="#c9a227" stroke-width="3" filter="url(#soft)"/>
+<circle cx="900.0" cy="900.0" r="138" fill="none" stroke="#c9a227" stroke-opacity="0.45" stroke-width="1.2"/>
+<text x="900.0" y="886.0" text-anchor="middle" font-size="30" font-weight="700" fill="#f4ead2" font-family="Tiro Devanagari Hindi, serif">शक्ति के</text>
+<text x="900.0" y="934.0" text-anchor="middle" font-size="44" font-weight="700" fill="#e8c85a" font-family="Tiro Devanagari Hindi, serif">48 नियम</text>
+<text x="900.0" y="966.0" text-anchor="middle" font-size="15" fill="#b9a97a" font-family="JetBrains Mono, monospace">THE 48 LAWS OF POWER</text>
+</svg></div>
+    <div class="legend"><div class="leg" style="--tc:#c9a227"><div class="leg-h"><span class="dot"></span>छवि व प्रतिष्ठा</div><div class="leg-links"><a href="#law-5">5</a><a href="#law-6">6</a><a href="#law-25">25</a><a href="#law-30">30</a><a href="#law-34">34</a><a href="#law-37">37</a><a href="#law-46">46</a></div></div>
+<div class="leg" style="--tc:#7d5a3c"><div class="leg-h"><span class="dot"></span>रहस्य व छिपाव</div><div class="leg-links"><a href="#law-3">3</a><a href="#law-4">4</a><a href="#law-14">14</a><a href="#law-21">21</a><a href="#law-38">38</a><a href="#law-44">44</a><a href="#law-48">48</a></div></div>
+<div class="leg" style="--tc:#a63d40"><div class="leg-h"><span class="dot"></span>शत्रु व मित्र</div><div class="leg-links"><a href="#law-2">2</a><a href="#law-10">10</a><a href="#law-15">15</a><a href="#law-19">19</a><a href="#law-42">42</a><a href="#law-43">43</a></div></div>
+<div class="leg" style="--tc:#2e6f63"><div class="leg-h"><span class="dot"></span>निर्भरता व नियंत्रण</div><div class="leg-links"><a href="#law-11">11</a><a href="#law-12">12</a><a href="#law-13">13</a><a href="#law-27">27</a><a href="#law-31">31</a><a href="#law-32">32</a><a href="#law-33">33</a></div></div>
+<div class="leg" style="--tc:#b07d2b"><div class="leg-h"><span class="dot"></span>दरबारी कूटनीति</div><div class="leg-links"><a href="#law-1">1</a><a href="#law-24">24</a><a href="#law-41">41</a><a href="#law-45">45</a></div></div>
+<div class="leg" style="--tc:#3f5f8a"><div class="leg-h"><span class="dot"></span>समय व मंचन</div><div class="leg-links"><a href="#law-8">8</a><a href="#law-16">16</a><a href="#law-17">17</a><a href="#law-28">28</a><a href="#law-35">35</a><a href="#law-47">47</a></div></div>
+<div class="leg" style="--tc:#6d7b3a"><div class="leg-h"><span class="dot"></span>आत्म-संयम व स्वतंत्रता</div><div class="leg-links"><a href="#law-7">7</a><a href="#law-9">9</a><a href="#law-18">18</a><a href="#law-20">20</a><a href="#law-22">22</a><a href="#law-23">23</a><a href="#law-26">26</a><a href="#law-29">29</a><a href="#law-36">36</a><a href="#law-39">39</a><a href="#law-40">40</a></div></div></div>
+  </section>
+
+  <section class="section" id="soochi">
+    <div class="sec-kicker">एक नज़र में</div>
+    <h2 class="sec">सभी 48 नियमों की सूची</h2>
+    <p class="intro">नीचे पूरी सूची दी गई है — अंक पर क्लिक करके सीधे उस नियम के विस्तृत विवेचन पर पहुँचें।</p>
+    <div class="table-wrap"><table class="ref"><thead><tr><th>क्र.</th><th>नियम (हिंदी)</th><th>Law (English)</th><th>विषय</th></tr></thead><tbody><tr><td class="tnum"><a href="#law-1">1</a></td><td class="thi">अपने स्वामी/मालिक से कभी आगे न बढ़ें</td><td class="ten">Never Outshine the Master</td><td><span class="chip" style="--tc:#b07d2b">दरबारी कूटनीति</span></td></tr><tr><td class="tnum"><a href="#law-2">2</a></td><td class="thi">मित्रों पर अधिक भरोसा न करें; शत्रुओं का उपयोग करना सीखें</td><td class="ten">Never Put Too Much Trust in Friends; Learn How to Use Enemies</td><td><span class="chip" style="--tc:#a63d40">शत्रु व मित्र</span></td></tr><tr><td class="tnum"><a href="#law-3">3</a></td><td class="thi">अपने इरादे छिपाकर रखें</td><td class="ten">Conceal Your Intentions</td><td><span class="chip" style="--tc:#7d5a3c">रहस्य व छिपाव</span></td></tr><tr><td class="tnum"><a href="#law-4">4</a></td><td class="thi">जितना आवश्यक हो, उससे कम बोलें</td><td class="ten">Always Say Less Than Necessary</td><td><span class="chip" style="--tc:#7d5a3c">रहस्य व छिपाव</span></td></tr><tr><td class="tnum"><a href="#law-5">5</a></td><td class="thi">बहुत कुछ प्रतिष्ठा पर निर्भर करता है — उसकी रक्षा करें</td><td class="ten">So Much Depends on Reputation - Guard It With Your Life</td><td><span class="chip" style="--tc:#c9a227">छवि व प्रतिष्ठा</span></td></tr><tr><td class="tnum"><a href="#law-6">6</a></td><td class="thi">हर कीमत पर ध्यान आकर्षित करें</td><td class="ten">Court Attention at All Costs</td><td><span class="chip" style="--tc:#c9a227">छवि व प्रतिष्ठा</span></td></tr><tr><td class="tnum"><a href="#law-7">7</a></td><td class="thi">दूसरों से काम कराएँ, पर श्रेय स्वयं लें</td><td class="ten">Get Others to Do the Work for You, but Always Take the Credit</td><td><span class="chip" style="--tc:#6d7b3a">आत्म-संयम व स्वतंत्रता</span></td></tr><tr><td class="tnum"><a href="#law-8">8</a></td><td class="thi">दूसरों को अपनी ओर आने पर मजबूर करें — ज़रूरत पड़े तो चारा डालें</td><td class="ten">Make Other People Come to You - Use Bait if Necessary</td><td><span class="chip" style="--tc:#3f5f8a">समय व मंचन</span></td></tr><tr><td class="tnum"><a href="#law-9">9</a></td><td class="thi">अपने कार्यों से जीतें, बहस से कभी नहीं</td><td class="ten">Win Through Your Actions, Never Through Argument</td><td><span class="chip" style="--tc:#6d7b3a">आत्म-संयम व स्वतंत्रता</span></td></tr><tr><td class="tnum"><a href="#law-10">10</a></td><td class="thi">संक्रमण से बचें: दुखी और अभागों से दूरी रखें</td><td class="ten">Infection: Avoid the Unhappy and the Unlucky</td><td><span class="chip" style="--tc:#a63d40">शत्रु व मित्र</span></td></tr><tr><td class="tnum"><a href="#law-11">11</a></td><td class="thi">लोगों को अपना आश्रित बनाकर रखना सीखें</td><td class="ten">Learn to Keep People Dependent on You</td><td><span class="chip" style="--tc:#2e6f63">निर्भरता व नियंत्रण</span></td></tr><tr><td class="tnum"><a href="#law-12">12</a></td><td class="thi">चुनिंदा ईमानदारी और उदारता से प्रतिद्वंद्वी को निःशस्त्र करें</td><td class="ten">Use Selective Honesty and Generosity to Disarm Your Victim</td><td><span class="chip" style="--tc:#2e6f63">निर्भरता व नियंत्रण</span></td></tr><tr><td class="tnum"><a href="#law-13">13</a></td><td class="thi">मदद माँगते समय स्वार्थ को छुएँ, दया या कृतज्ञता को नहीं</td><td class="ten">When Asking for Help, Appeal to People&#x27;s Self-Interest, Never to Their Mercy or Gratitude</td><td><span class="chip" style="--tc:#2e6f63">निर्भरता व नियंत्रण</span></td></tr><tr><td class="tnum"><a href="#law-14">14</a></td><td class="thi">मित्र का रूप धरें, गुप्तचर का काम करें</td><td class="ten">Pose as a Friend, Work as a Spy</td><td><span class="chip" style="--tc:#7d5a3c">रहस्य व छिपाव</span></td></tr><tr><td class="tnum"><a href="#law-15">15</a></td><td class="thi">अपने शत्रु को पूरी तरह कुचल दें</td><td class="ten">Crush Your Enemy Totally</td><td><span class="chip" style="--tc:#a63d40">शत्रु व मित्र</span></td></tr><tr><td class="tnum"><a href="#law-16">16</a></td><td class="thi">अनुपस्थिति से सम्मान और प्रतिष्ठा बढ़ाएँ</td><td class="ten">Use Absence to Increase Respect and Honor</td><td><span class="chip" style="--tc:#3f5f8a">समय व मंचन</span></td></tr><tr><td class="tnum"><a href="#law-17">17</a></td><td class="thi">दूसरों को अनिश्चितता में रखें: अप्रत्याशितता का आभा बनाएँ</td><td class="ten">Keep Others in Suspended Terror: Cultivate an Air of Unpredictability</td><td><span class="chip" style="--tc:#3f5f8a">समय व मंचन</span></td></tr><tr><td class="tnum"><a href="#law-18">18</a></td><td class="thi">अपनी रक्षा के लिए किले न बनाएँ — अकेलापन खतरनाक है</td><td class="ten">Do Not Build Fortresses to Protect Yourself - Isolation Is Dangerous</td><td><span class="chip" style="--tc:#6d7b3a">आत्म-संयम व स्वतंत्रता</span></td></tr><tr><td class="tnum"><a href="#law-19">19</a></td><td class="thi">जानें कि आप किससे पेश आ रहे हैं — गलत व्यक्ति को नाराज़ न करें</td><td class="ten">Know Who You Are Dealing With - Do Not Offend the Wrong Person</td><td><span class="chip" style="--tc:#a63d40">शत्रु व मित्र</span></td></tr><tr><td class="tnum"><a href="#law-20">20</a></td><td class="thi">किसी से पूरी तरह बंधे न रहें</td><td class="ten">Do Not Commit to Anyone</td><td><span class="chip" style="--tc:#6d7b3a">आत्म-संयम व स्वतंत्रता</span></td></tr><tr><td class="tnum"><a href="#law-21">21</a></td><td class="thi">मूर्ख का रूप धरकर दूसरे मूर्ख को पकड़ें — अपने शिकार से अधिक बेवकूफ़ दिखें</td><td class="ten">Play a Sucker to Catch a Sucker - Seem Dumber Than Your Mark</td><td><span class="chip" style="--tc:#7d5a3c">रहस्य व छिपाव</span></td></tr><tr><td class="tnum"><a href="#law-22">22</a></td><td class="thi">समर्पण की चाल अपनाएँ: कमज़ोरी को शक्ति में बदलें</td><td class="ten">Use the Surrender Tactic: Transform Weakness Into Power</td><td><span class="chip" style="--tc:#6d7b3a">आत्म-संयम व स्वतंत्रता</span></td></tr><tr><td class="tnum"><a href="#law-23">23</a></td><td class="thi">अपनी शक्ति को केंद्रित करें</td><td class="ten">Concentrate Your Forces</td><td><span class="chip" style="--tc:#6d7b3a">आत्म-संयम व स्वतंत्रता</span></td></tr><tr><td class="tnum"><a href="#law-24">24</a></td><td class="thi">आदर्श दरबारी की भूमिका निभाएँ</td><td class="ten">Play the Perfect Courtier</td><td><span class="chip" style="--tc:#b07d2b">दरबारी कूटनीति</span></td></tr><tr><td class="tnum"><a href="#law-25">25</a></td><td class="thi">स्वयं को फिर से गढ़ें</td><td class="ten">Re-Create Yourself</td><td><span class="chip" style="--tc:#c9a227">छवि व प्रतिष्ठा</span></td></tr><tr><td class="tnum"><a href="#law-26">26</a></td><td class="thi">अपने हाथ साफ़ रखें</td><td class="ten">Keep Your Hands Clean</td><td><span class="chip" style="--tc:#6d7b3a">आत्म-संयम व स्वतंत्रता</span></td></tr><tr><td class="tnum"><a href="#law-27">27</a></td><td class="thi">लोगों की आस्था की भूख का उपयोग करके अनुयायी बनाएँ</td><td class="ten">Play on People&#x27;s Need to Believe to Create a Cultlike Following</td><td><span class="chip" style="--tc:#2e6f63">निर्भरता व नियंत्रण</span></td></tr><tr><td class="tnum"><a href="#law-28">28</a></td><td class="thi">साहस के साथ कार्रवाई में उतरें</td><td class="ten">Enter Action With Boldness</td><td><span class="chip" style="--tc:#3f5f8a">समय व मंचन</span></td></tr><tr><td class="tnum"><a href="#law-29">29</a></td><td class="thi">अंत तक की योजना बनाएँ</td><td class="ten">Plan All the Way to the End</td><td><span class="chip" style="--tc:#6d7b3a">आत्म-संयम व स्वतंत्रता</span></td></tr><tr><td class="tnum"><a href="#law-30">30</a></td><td class="thi">अपनी उपलब्धियों को सहज दिखाएँ</td><td class="ten">Make Your Accomplishments Seem Effortless</td><td><span class="chip" style="--tc:#c9a227">छवि व प्रतिष्ठा</span></td></tr><tr><td class="tnum"><a href="#law-31">31</a></td><td class="thi">विकल्पों पर नियंत्रण रखें: दूसरों से वही पत्ते खिलवाएँ जो आप चाहते हैं</td><td class="ten">Control the Options: Get Others to Play With the Cards You Deal</td><td><span class="chip" style="--tc:#2e6f63">निर्भरता व नियंत्रण</span></td></tr><tr><td class="tnum"><a href="#law-32">32</a></td><td class="thi">लोगों की कल्पनाओं से खेलें</td><td class="ten">Play to People&#x27;s Fantasies</td><td><span class="chip" style="--tc:#2e6f63">निर्भरता व नियंत्रण</span></td></tr><tr><td class="tnum"><a href="#law-33">33</a></td><td class="thi">हर व्यक्ति का कमज़ोर बिंदु खोजें</td><td class="ten">Discover Each Man&#x27;s Thumbscrew</td><td><span class="chip" style="--tc:#2e6f63">निर्भरता व नियंत्रण</span></td></tr><tr><td class="tnum"><a href="#law-34">34</a></td><td class="thi">अपने ही अंदाज़ में शाही बनें: राजा की तरह व्यवहार करें, ताकि आपसे राजा जैसा व्यवहार हो</td><td class="ten">Be Royal in Your Own Fashion: Act Like a King to Be Treated Like One</td><td><span class="chip" style="--tc:#c9a227">छवि व प्रतिष्ठा</span></td></tr><tr><td class="tnum"><a href="#law-35">35</a></td><td class="thi">समय की कला में माहिर बनें</td><td class="ten">Master the Art of Timing</td><td><span class="chip" style="--tc:#3f5f8a">समय व मंचन</span></td></tr><tr><td class="tnum"><a href="#law-36">36</a></td><td class="thi">जो आपको नहीं मिल सकता उसकी उपेक्षा करें: अनदेखा करना ही सर्वोत्तम बदला है</td><td class="ten">Disdain Things You Cannot Have: Ignoring Them Is the Best Revenge</td><td><span class="chip" style="--tc:#6d7b3a">आत्म-संयम व स्वतंत्रता</span></td></tr><tr><td class="tnum"><a href="#law-37">37</a></td><td class="thi">प्रभावशाली दृश्य/नाटक रचें</td><td class="ten">Create Compelling Spectacles</td><td><span class="chip" style="--tc:#c9a227">छवि व प्रतिष्ठा</span></td></tr><tr><td class="tnum"><a href="#law-38">38</a></td><td class="thi">मन में जो चाहें सोचें, पर व्यवहार दूसरों जैसा करें</td><td class="ten">Think as You Like but Behave Like Others</td><td><span class="chip" style="--tc:#7d5a3c">रहस्य व छिपाव</span></td></tr><tr><td class="tnum"><a href="#law-39">39</a></td><td class="thi">मछली पकड़ने के लिए पानी को गड्ढा करें</td><td class="ten">Stir Up Waters to Catch Fish</td><td><span class="chip" style="--tc:#6d7b3a">आत्म-संयम व स्वतंत्रता</span></td></tr><tr><td class="tnum"><a href="#law-40">40</a></td><td class="thi">मुफ़्त की चीज़ से बचें</td><td class="ten">Despise the Free Lunch</td><td><span class="chip" style="--tc:#6d7b3a">आत्म-संयम व स्वतंत्रता</span></td></tr><tr><td class="tnum"><a href="#law-41">41</a></td><td class="thi">किसी महान व्यक्ति के पदचिह्नों पर सीधे न चलें</td><td class="ten">Avoid Stepping Into a Great Man&#x27;s Shoes</td><td><span class="chip" style="--tc:#b07d2b">दरबारी कूटनीति</span></td></tr><tr><td class="tnum"><a href="#law-42">42</a></td><td class="thi">गड़रिये पर चोट करें, भेड़ें तितर-बितर हो जाएँगी</td><td class="ten">Strike the Shepherd and the Sheep Will Scatter</td><td><span class="chip" style="--tc:#a63d40">शत्रु व मित्र</span></td></tr><tr><td class="tnum"><a href="#law-43">43</a></td><td class="thi">दूसरों के मन और हृदय पर काम करें</td><td class="ten">Work on the Hearts and Minds of Others</td><td><span class="chip" style="--tc:#a63d40">शत्रु व मित्र</span></td></tr><tr><td class="tnum"><a href="#law-44">44</a></td><td class="thi">दर्पण प्रभाव से निःशस्त्र और विक्षुब्ध करें</td><td class="ten">Disarm and Infuriate With the Mirror Effect</td><td><span class="chip" style="--tc:#7d5a3c">रहस्य व छिपाव</span></td></tr><tr><td class="tnum"><a href="#law-45">45</a></td><td class="thi">बदलाव की बात करें, पर एक बार में बहुत ज़्यादा सुधार न करें</td><td class="ten">Preach the Need for Change, but Never Reform Too Much at Once</td><td><span class="chip" style="--tc:#b07d2b">दरबारी कूटनीति</span></td></tr><tr><td class="tnum"><a href="#law-46">46</a></td><td class="thi">कभी अत्यधिक परिपूर्ण न दिखें</td><td class="ten">Never Appear Too Perfect</td><td><span class="chip" style="--tc:#c9a227">छवि व प्रतिष्ठा</span></td></tr><tr><td class="tnum"><a href="#law-47">47</a></td><td class="thi">लक्ष्य से आगे न बढ़ें; जीत में रुकना सीखें</td><td class="ten">Do Not Go Past the Mark You Aimed For; In Victory, Learn When to Stop</td><td><span class="chip" style="--tc:#3f5f8a">समय व मंचन</span></td></tr><tr><td class="tnum"><a href="#law-48">48</a></td><td class="thi">निराकार/अनिश्चित रूप धारण करें</td><td class="ten">Assume Formlessness</td><td><span class="chip" style="--tc:#7d5a3c">रहस्य व छिपाव</span></td></tr></tbody></table></div>
+    <div class="chip-row"><a class="chip" href="#law-1">1</a><a class="chip" href="#law-2">2</a><a class="chip" href="#law-3">3</a><a class="chip" href="#law-4">4</a><a class="chip" href="#law-5">5</a><a class="chip" href="#law-6">6</a><a class="chip" href="#law-7">7</a><a class="chip" href="#law-8">8</a><a class="chip" href="#law-9">9</a><a class="chip" href="#law-10">10</a><a class="chip" href="#law-11">11</a><a class="chip" href="#law-12">12</a><a class="chip" href="#law-13">13</a><a class="chip" href="#law-14">14</a><a class="chip" href="#law-15">15</a><a class="chip" href="#law-16">16</a><a class="chip" href="#law-17">17</a><a class="chip" href="#law-18">18</a><a class="chip" href="#law-19">19</a><a class="chip" href="#law-20">20</a><a class="chip" href="#law-21">21</a><a class="chip" href="#law-22">22</a><a class="chip" href="#law-23">23</a><a class="chip" href="#law-24">24</a><a class="chip" href="#law-25">25</a><a class="chip" href="#law-26">26</a><a class="chip" href="#law-27">27</a><a class="chip" href="#law-28">28</a><a class="chip" href="#law-29">29</a><a class="chip" href="#law-30">30</a><a class="chip" href="#law-31">31</a><a class="chip" href="#law-32">32</a><a class="chip" href="#law-33">33</a><a class="chip" href="#law-34">34</a><a class="chip" href="#law-35">35</a><a class="chip" href="#law-36">36</a><a class="chip" href="#law-37">37</a><a class="chip" href="#law-38">38</a><a class="chip" href="#law-39">39</a><a class="chip" href="#law-40">40</a><a class="chip" href="#law-41">41</a><a class="chip" href="#law-42">42</a><a class="chip" href="#law-43">43</a><a class="chip" href="#law-44">44</a><a class="chip" href="#law-45">45</a><a class="chip" href="#law-46">46</a><a class="chip" href="#law-47">47</a><a class="chip" href="#law-48">48</a></div>
+  </section>
+
+  <section class="section" id="vivechan">
+    <div class="sec-kicker">विस्तृत विवेचन</div>
+    <h2 class="sec">48 नियम — व्याख्या, उदाहरण व उपयोग</h2>
+    <p class="intro">प्रत्येक नियम के साथ: उसका सार, विस्तृत व्याख्या, ऐतिहासिक व आधुनिक उदाहरण, व्यावहारिक उपयोग, और सावधानी (उलटा पक्ष)।</p>
+  </section>
+
+  <article class="law" id="law-1" style="--tc:#b07d2b">
+  <header class="law-head">
+    <div class="law-num">1</div>
+    <div class="law-titles">
+      <h3 class="law-hi">अपने स्वामी/मालिक से कभी आगे न बढ़ें</h3>
+      <div class="law-en">Never Outshine the Master</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">दरबारी कूटनीति</span></div>
+  <p class="gist">जो आपसे ऊपर है, उसे कभी ऐसा महसूस न कराएँ कि आप उससे बड़े या चतुर हो गए हैं।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>यह नियम बताता है कि सत्ता की सीढ़ी पर ऊपर बैठे व्यक्ति की सबसे बड़ी कमज़ोरी उसका अहंकार है। लोग अपनी जगह से ऊपर उठते हुए दिखने वाले अधीनस्थों को क्षमा नहीं करते। यदि आप अपनी प्रतिभा का प्रदर्शन इस तरह करते हैं कि आपका मालिक फीका पड़ जाए, तो वह आपको हटाने का बहाना ढूँढने लगेगा।</p><p>इसका अर्थ यह नहीं कि आप अपनी योग्यता छिपाएँ। इसका अर्थ है कि सफलता का श्रेय और चमक आप अपने स्वामी को दें, जबकि वास्तविक काम आप करें। अपने विचार ऐसे रखें कि मानो वे उनके ही विचार थे। बुद्धिमान व्यक्ति अपने मालिक को सुरक्षित और श्रेष्ठ महसूस कराता है, और बदले में उसकी शक्ति का उपयोग करता है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>फ्रांस के राजा लुई चौदह के दरबार में अनेक प्रतिभाशाली मंत्री थे, पर जो अपने राजा से आगे चमकने की कोशिश करते, वे जल्दी ही पद से गिरा दिए जाते। दरबारी अपनी प्रतिभा को राजा के वैभव के पीछे छिपाकर ही सुरक्षित रहते थे।</li><li>निकोलस फूके जैसे मंत्री ने अत्यधिक धन और वैभव जमा कर लिया, जो राजा के वैभव से टकराने लगा, और अंत में उसका पतन हो गया।</li><li>महाभारत में दुर्योधन के दरबार में शकुनि अपनी चतुराई से दूसरों को चलाता था, पर वह सदैव अपनी भूमिका को पर्दे के पीछे रखता था, सामने नहीं आता था।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>ऑफिस में अपने बॉस को अपने आइडिया का श्रेय दें और प्रस्तुति के समय उन्हें सामने रखें।</li><li>परिवार या सामाजिक दायरे में बड़े-बुज़ुर्गों के सामने उनकी प्रतिष्ठा को बढ़ाकर बोलें, अपनी नहीं।</li><li>जब आप सचमुच उनसे आगे निकल जाएँ, तो स्थिति इतनी मजबूत कर लें कि अब उनकी नज़र में खतरा न बनें, या स्वयं उनसे आगे बढ़ चुके हों।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>यदि आपका स्वामी सचमुच अयोग्य और हानिकारक है, तो यह नियम लंबे समय तक साथ निभाने की सलाह देता है — जब तक आपके पास उससे स्वतंत्र होने का रास्ता न बन जाए।</p></aside>
+</article>
+<article class="law" id="law-2" style="--tc:#a63d40">
+  <header class="law-head">
+    <div class="law-num">2</div>
+    <div class="law-titles">
+      <h3 class="law-hi">मित्रों पर अधिक भरोसा न करें; शत्रुओं का उपयोग करना सीखें</h3>
+      <div class="law-en">Never Put Too Much Trust in Friends; Learn How to Use Enemies</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">शत्रु व मित्र</span></div>
+  <p class="gist">मित्र ईर्ष्या और विश्वासघात के लिए अधिक प्रवृत्त होते हैं; पूर्व-शत्रु अपनी जगह बनाए रखने के लिए अधिक वफ़ादार साबित हो सकते हैं।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>मित्र जल्दी ही आपसे अपेक्षा करने लगते हैं और आपकी सफलता से ईर्ष्या कर सकते हैं। जिसे आपने कुछ नहीं दिया, वह अक्सर उससे अधिक कृतज्ञ होता है जिसे आपने सब कुछ दिया। इसलिए पुराने शत्रु को साथ लेकर उसे अवसर देना, कभी-कभी मित्र से अधिक सुरक्षित होता है — क्योंकि उसे आपका विश्वास जीतना होता है।</p><p>बुद्धिमान व्यक्ति मित्रता को काम से अलग रखता है, और शत्रु को अपने पक्ष में करके उसकी ऊर्जा और योग्यता को अपने हित में लगाता है। लेकिन साथ ही मित्रता को भी नकारना नहीं है — बस आँख खुली रखनी है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>माइकल तीसरा (बीज़ान्टियम) ने अपने पिता के शत्रु को अपना सलाहकार बनाया और वही उसका सबसे वफ़ादार सहयोगी निकला।</li><li>अनेक व्यापार में साझेदार मित्र ही आगे चलकर कंपनी को हड़प लेते हैं, क्योंकि वे विश्वास का फायदा उठाते हैं।</li><li>चाणक्य ने पूर्व-शत्रु राजाओं को मिलाकर मौर्य साम्राज्य खड़ा किया, जहाँ पुरानी शत्रुता बाद में निष्ठा में बदल गई।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>किसी नए साथी को काम में शामिल करते समय उसकी पुरानी प्रतिद्वंद्विता को दांव पर लगाकर उसकी निष्ठा परखें।</li><li>अपने आलोचक को किसी ज़िम्मेदारी में लगाएँ; अक्सर वह सबसे अच्छा काम करके खुद को साबित करना चाहेगा।</li><li>दोस्तों के साथ बिज़नेस करते समय शर्तें और हिस्सेदारी पहले लिखित में तय करें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>यह नियम मित्रता को कम न आँकने की चेतावनी देता है — बस भावुकता को व्यवसाय से अलग रखने की सलाह देता है।</p></aside>
+</article>
+<article class="law" id="law-3" style="--tc:#7d5a3c">
+  <header class="law-head">
+    <div class="law-num">3</div>
+    <div class="law-titles">
+      <h3 class="law-hi">अपने इरादे छिपाकर रखें</h3>
+      <div class="law-en">Conceal Your Intentions</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">रहस्य व छिपाव</span></div>
+  <p class="gist">यदि लोग आपका लक्ष्य नहीं जानेंगे, तो वे उसे रोक नहीं पाएँगे।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>अपने मंसूबे खुलकर बताना आपको भेद्य बना देता है। लोग आपके इरादे जानकर या तो उसका विरोध करेंगे, या उससे पहले खुद वही कर लेंगे। इसलिए अपने असली लक्ष्य पर धुंध फैलाए रखें। एक उद्देश्य दिखाएँ जो भ्रामक हो, और असली उद्देश्य अपने भीतर रखें।</p><p>दोहरा एहसास छोड़ें — लोग आपकी बातों से भ्रमित रहें और कई संभावनाएँ गढ़ते रहें। जब वे आपके असली इरादे नहीं पढ़ पाएँगे, तब तक आपका काम पूरा हो चुका होगा।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>निकोलो मैकियावेली लिखते हैं कि राजा को कभी अपने असली मंसूबे प्रकट नहीं करने चाहिए; चेहरे को मुखौटे की तरह रखें।</li><li>दूसरे विश्वयुद्ध में दोनों पक्षों ने अंधाधुंध भ्रम (deception) फैलाकर दुश्मन को गलत जगह तैनात किया।</li><li>कई कंपनियाँ नया उत्पाद लॉन्च करने से पहले गुप्त रूप से तैयारी करती हैं, ताकि प्रतिद्वंद्वी पहले नकल न कर सकें।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>नौकरी या सौदे की बातचीत में अपनी असली ज़रूरत या समय-सीमा मत बताएँ।</li><li>प्रतिस्पर्धी रणनीति बनाते समय मंशा ज़ाहिर न करें, बल्कि विकल्प खुले रखें।</li><li>सोशल मीडिया पर अपने अगले कदम पहले से न बताएँ।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>अत्यधिक छिपाव अविश्वास और दूरी पैदा करता है; जिनके साथ आपको जीवनभर साथ चलना है, उनके साथ पारदर्शिता भी ज़रूरी है।</p></aside>
+</article>
+<article class="law" id="law-4" style="--tc:#7d5a3c">
+  <header class="law-head">
+    <div class="law-num">4</div>
+    <div class="law-titles">
+      <h3 class="law-hi">जितना आवश्यक हो, उससे कम बोलें</h3>
+      <div class="law-en">Always Say Less Than Necessary</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">रहस्य व छिपाव</span></div>
+  <p class="gist">जितना कम बोलेंगे, उतने अधिक शक्तिशाली और रहस्यमय दिखेंगे।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>जो व्यक्ति अधिक बोलता है, वह अपनी बुद्धि, अपनी कमज़ोरियाँ और अपने इरादे दूसरों के सामने रख देता है। कम बोलना आपको नियंत्रण देता है — दूसरे आपको समझने की कोशिश करते हैं और आपके शब्दों को अधिक महत्व देते हैं।</p><p>चुप्पी और संक्षिप्त उत्तर दूसरों को असहज करते हैं और वे आपकी ओर अधिक ध्यान देते हैं। इसलिए बोलने से पहले सोचें, और बोलने में संयम रखें। सत्ता की भाषा कम शब्दों में अधिक अर्थ रखती है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>लुई चौदह कम बोलते थे, पर उनका एक शब्द भी आदेश बन जाता था; इसी संयम से उनका रुतबा बना।</li><li>बहुत से सफल निवेशक और व्यापारी बातचीत में कम बोलकर दूसरे पक्ष को अधिक बोलने पर मजबूर कर देते हैं और उसकी असली ज़रूरत समझ जाते हैं।</li><li>अकबर के दरबार में बीरबल कभी बेकार की बातें नहीं करते थे; उनके संक्षिप्त उत्तर ही उनकी चतुराई की पहचान थे।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>बैठक में जल्दी न बोलें; पहले दूसरों की बात सुनें और अंत में संक्षेप में अपनी बात रखें।</li><li>बातचीत में रुकने की शक्ति का उपयोग करें; खामोशी दूसरे को अपनी बात खोलने पर मजबूर करती है।</li><li>भावनाओं में लिखा ईमेल या संदेश भेजने से पहले उसे छोटा करें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>आवश्यक जानकारी छिपाना भी नुकसानदेह है; कम बोलने का अर्थ अस्पष्ट या भरोसेमंद न होना नहीं है।</p></aside>
+</article>
+<article class="law" id="law-5" style="--tc:#c9a227">
+  <header class="law-head">
+    <div class="law-num">5</div>
+    <div class="law-titles">
+      <h3 class="law-hi">बहुत कुछ प्रतिष्ठा पर निर्भर करता है — उसकी रक्षा करें</h3>
+      <div class="law-en">So Much Depends on Reputation - Guard It With Your Life</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">छवि व प्रतिष्ठा</span></div>
+  <p class="gist">प्रतिष्ठा ही शक्ति का आधार है; इसे बनाएँ और हर कीमत पर बचाएँ।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>प्रतिष्ठा एक ऐसी संपत्ति है जो आपके लिए लड़ती है, आपको बिना कुछ कहे प्रभाव देती है, और विरोधियों को डराती है। एक मज़बूत प्रतिष्ठा बनाने में वर्षों लगते हैं, पर एक गलती उसे पल में गिरा सकती है। इसलिए अपनी छवि को उसी तरह बचाएँ जैसे जीवन को।</p><p>प्रतिष्ठा को केवल अच्छे काम से नहीं, बल्कि उसकी सुरक्षा और प्रचार से बनाए रखें। चुप रहकर किसी आरोप का खंडन न करना आपकी छवि को कमज़ोर करता है। आवश्यकता पड़ने पर मुखौटे को मजबूत करें, और अपनी प्रतिष्ठा को किसी और के भरोसे न छोड़ें।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>चाणक्य की प्रतिष्ठा इतनी थी कि चंद्रगुप्त को सिंहासन दिलाने में उनकी बुद्धि का नाम ही आधी लड़ाई जीत देता था।</li><li>बहुत से व्यापारी गुणवत्ता और वचन-पालन से ऐसी छवि बनाते हैं कि ग्राहक बिना पूछे भरोसा करते हैं।</li><li>एक कंपनी का एक बड़ा घोटाला वर्षों की बनी हुई छवि को कुछ ही दिनों में तहस-नहस कर देता है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>अपने काम और वादों को पूरा करके भरोसे की छवि बनाएँ; देर से पूरा करने से अच्छा है समय पर पूरा करें।</li><li>ऑनलाइन मौजूदगी को संभालें — आपकी डिजिटल छवि भी आपकी प्रतिष्ठा है।</li><li>झूठे आरोपों का शांत और तथ्यपूर्ण तरीके से जवाब दें, चुप न रहें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>छवि के लिए पूरी ज़िंदगी नाटक करना थका देता है; प्रतिष्ठा चरित्र पर टिकी हो तो अधिक टिकाऊ होती है।</p></aside>
+</article>
+<article class="law" id="law-6" style="--tc:#c9a227">
+  <header class="law-head">
+    <div class="law-num">6</div>
+    <div class="law-titles">
+      <h3 class="law-hi">हर कीमत पर ध्यान आकर्षित करें</h3>
+      <div class="law-en">Court Attention at All Costs</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">छवि व प्रतिष्ठा</span></div>
+  <p class="gist">कुछ भी न होने से बेहतर है कि लोग आप पर ध्यान दें — बुराई और भलाई से ज़्यादा मायने रखती है कि आप याद रहें।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>दुनिया उन्हीं को याद रखती है जो उसकी नज़र में रहते हैं। ध्यान आकर्षित करना शक्ति का सबसे सस्ता और सबसे प्रभावी साधन है। जो व्यक्ति ध्यान नहीं खींचता, वह किसी भी गणना में नहीं गिना जाता।</p><p>इसका अर्थ है अलग दिखना, विवाद या रुचि पैदा करना, और मंच पर बने रहना। बड़ी हस्तियाँ नाटकीयता, विरोधाभास और असामान्य व्यवहार से ध्यान खींचती हैं। बेशक, इसका मूल्य भी है — नफ़रत बनाम उपेक्षा में नफ़रत कभी-कभी बेहतर होती है, क्योंकि कम से कम वे आपको याद रखते हैं।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>फ्रांस की राजनीति में कोई भी बड़ा नेता बिना ध्यान खींचे सत्ता तक नहीं पहुँचा।</li><li>आधुनिक दौर में सोशल मीडिया पर विवादित या अनोखी बातें कहने वाले कुछ ही समय में चर्चित हो जाते हैं।</li><li>एक कलाकार या लेखक असामान्य शैली अपनाकर बाकी सबसे अलग दिखता है और याद रखा जाता है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>अपने काम में एक अलग पहचान बनाएँ, भीड़ में गुम न हों।</li><li>बैठक या भाषण में एक यादगार वाक्य या विचार छोड़ें जिसे लोग दोहराएँ।</li><li>नकारात्मक ध्यान से बचें जहाँ वह नुकसान ही करे; ध्यान लेकिन सम्मान के साथ।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>सिर्फ ध्यान के लिए उतरना भी खतरनाक है; ध्यान को शक्ति में बदलना सीखें, वरना वह पतन बन जाता है।</p></aside>
+</article>
+<article class="law" id="law-7" style="--tc:#6d7b3a">
+  <header class="law-head">
+    <div class="law-num">7</div>
+    <div class="law-titles">
+      <h3 class="law-hi">दूसरों से काम कराएँ, पर श्रेय स्वयं लें</h3>
+      <div class="law-en">Get Others to Do the Work for You, but Always Take the Credit</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">आत्म-संयम व स्वतंत्रता</span></div>
+  <p class="gist">आपकी मेहनत, समय और ऊर्जा सीमित हैं; दूसरों की मेहनत को अपनी बुद्धि से निर्देशित करें और श्रेय लें।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>शक्ति का सार है दूसरों की ऊर्जा का उपयोग करना। जो व्यक्ति हर काम खुद करता है, वह सीमित रह जाता है। जो व्यक्ति दूसरों से काम करवाता है और उसका श्रेय लेता है, वह अपने समय और ऊर्जा को उच्चतर लक्ष्यों के लिए बचा लेता है।</p><p>इसका अर्थ नैतिक लापरवाही नहीं, बल्कि नेतृत्व है — सही लोगों को सही काम सौंपना और अंतिम सफलता का श्रेय पेश करना। लोग जानते भी हैं कि असली काम किसने किया, पर फल का श्रेय वही पाता है जो उसे प्रस्तुत करता है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>इतिहास के अनेक साम्राज्यों में राजा ने अपने सेनापतियों और मंत्रियों से काम कराया और विजय का श्रेय स्वयं लिया।</li><li>कई प्रसिद्ध आविष्कारकों ने अपने सहयोगियों की मेहनत का श्रेय लेकर नाम कमाया।</li><li>आधुनिक दौर में अच्छे मैनेजर टीम का काम कराते हैं और ऊपर प्रस्तुति में सारा श्रेय टीम के नाम पर भी आता है, पर असली निर्देशन उनका होता है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>जो काम आप खुद कर सकते हैं पर उससे सीख नहीं रहे, उसे सौंपें और अपना ध्यान बड़े काम पर लगाएँ।</li><li>टीम का काम प्रस्तुत करते समय परिणाम पर केंद्रित रहें।</li><li>अपने नेतृत्व के गुणों को ऐसे पेश करें कि वे आपकी पहचान बनें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>दूसरों की मेहनत का सारा श्रेय हड़पना रिश्ते तोड़ देता है; दूसरों को भी उचित पहचान दें, वरना वे साथ छोड़ देंगे।</p></aside>
+</article>
+<article class="law" id="law-8" style="--tc:#3f5f8a">
+  <header class="law-head">
+    <div class="law-num">8</div>
+    <div class="law-titles">
+      <h3 class="law-hi">दूसरों को अपनी ओर आने पर मजबूर करें — ज़रूरत पड़े तो चारा डालें</h3>
+      <div class="law-en">Make Other People Come to You - Use Bait if Necessary</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">समय व मंचन</span></div>
+  <p class="gist">जो अपनी ज़मीन पर लड़ता है, वह जीतता है; दुश्मन को अपनी शर्तों पर आने दें।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>जब आप दूसरों के पीछे दौड़ते हैं, तो आप कमज़ोर दिखते हैं और नियंत्रण खो देते हैं। इसलिए ऐसी स्थिति बनाएँ कि दूसरे आपके पास आएँ — इससे आपकी शर्तें और आपका समय चलता है।</p><p>चारा डालने का अर्थ है लाभ, अवसर या प्रलोभन प्रस्तुत करना जो उन्हें खींच लाए। जो व्यक्ति आपके पास आता है, वह भावनात्मक रूप से आपका हो जाता है और उसकी ज़रूरत आपको अधिक होती है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>अनेक व्यापारी ग्राहक को अपने पास आने के लिए विशेष ऑफ़र, छूट या लुभावने अवसर का जाल बिछाते हैं।</li><li>राजनीति में नेता दूसरे दलों को अपने पाले में लाने के लिए पद या लाभ का लालच देते हैं।</li><li>प्रतिष्ठित कंपनियाँ नौकरी चाहने वालों को अपने पास आने के लिए ब्रांड और सुविधाओं का चारा डालती हैं।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>सौदे में जल्दबाज़ी न दिखाएँ; दूसरे पक्ष को अपनी ओर आने का अवसर दें।</li><li>ग्राहकों के लिए आकर्षक पेशकश बनाएँ जिससे वे आपके पास आएँ।</li><li>सामाजिक या व्यावसायिक संबंधों में मूल्य प्रस्तुत करें, माँग नहीं।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>निरंतर चारा डालना और अपेक्षा रखना संबंधों को झूठा बना देता है; सच्चा मूल्य भी ज़रूरी है।</p></aside>
+</article>
+<article class="law" id="law-9" style="--tc:#6d7b3a">
+  <header class="law-head">
+    <div class="law-num">9</div>
+    <div class="law-titles">
+      <h3 class="law-hi">अपने कार्यों से जीतें, बहस से कभी नहीं</h3>
+      <div class="law-en">Win Through Your Actions, Never Through Argument</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">आत्म-संयम व स्वतंत्रता</span></div>
+  <p class="gist">तर्क से बदलाव नहीं आता; कार्य और परिणाम ही लोगों को मनाते हैं।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>बहस में जीतना भी अक्सर असली हार होती है — आप विरोधी को अपमानित करते हैं और वह अपनी बात पर और अड़ जाता है। शब्दों से किसी का विश्वास नहीं बदलता। केवल कार्य, उदाहरण और परिणाम ही लोगों को अपनी बात मानने पर मजबूर करते हैं।</p><p>इसलिए ऊर्जा बहस में न लगाएँ, बल्कि दिखाएँ। आपकी सफलता, आपका परिश्रम और आपके परिणाम बोलें। जो काम करके दिखाता है, उसे जवाब की ज़रूरत नहीं पड़ती।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>कई आविष्कारकों को पहले हँसी में उड़ाया गया, पर उनके बने काम ने आलोचकों को चुप करा दिया।</li><li>खेल में खिलाड़ी प्रतिद्वंद्वी की टिप्पणी का जवाब अंकों से देता है, बोलकर नहीं।</li><li>महात्मा गांधी ने तर्क के बजाय सत्याग्रह जैसे कार्यों से जनमत बदला।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>जब कोई आपकी बात न माने, तो बहस बंद करके परिणाम दिखाएँ।</li><li>प्रस्तुति में तर्क से अधिक ठोस उदाहरण और डेटा रखें।</li><li>सोशल मीडिया पर बहस में उलझने से बचें; काम बोले।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>कभी-कभी संवाद और तर्क आवश्यक होते हैं; पूरी तरह बहस से बचना ज़रूरी नहीं, बस फलदायी तर्क करें।</p></aside>
+</article>
+<article class="law" id="law-10" style="--tc:#a63d40">
+  <header class="law-head">
+    <div class="law-num">10</div>
+    <div class="law-titles">
+      <h3 class="law-hi">संक्रमण से बचें: दुखी और अभागों से दूरी रखें</h3>
+      <div class="law-en">Infection: Avoid the Unhappy and the Unlucky</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">शत्रु व मित्र</span></div>
+  <p class="gist">भावनाएँ फैलती हैं; दुखी और अस्थिर लोग आपकी ऊर्जा और भाग्य को गिरा सकते हैं।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>दुख, असंतोष और अस्थिरता संक्रामक होते हैं। जो व्यक्ति सदैव अशांत, शिकायती और अस्थिर रहता है, उसके संग से आपकी ऊर्जा भी क्षीण होती है और गलत निर्णय बढ़ते हैं। इसलिए ऐसे लोगों से दूरी बनाएँ जो अपनी विफलता दूसरों पर थोपते हैं।</p><p>साथ ही, असफलता के लिए अपना दोष ढूँढ़ने वाले लोग भी अपनी समस्या का कारण कभी नहीं देखते। आपको ऐसे लोगों से बचना चाहिए, चाहे वे कितने ही बुद्धिमान दिखें। अच्छी ऊर्जा और स्थिरता के साथी आपको ऊपर उठाते हैं।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>अनेक बुद्धिमान लोग बुरी संगत में पड़कर नशा, कर्ज़ और गलत निर्णयों की ओर बहक जाते हैं।</li><li>कार्यस्थल पर लगातार शिकायत करने वाले सहकर्मी पूरी टीम का मनोबल गिरा देते हैं।</li><li>जुए और जोखिम भरे निवेश में डूबे लोग अक्सर अपने दोस्तों को भी घसीट लेते हैं।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>अपने दायरे से लगातार नकारात्मक और शिकायती लोगों को दूर रखें।</li><li>नए सहयोगी चुनते समय उसकी स्थिरता और सोच देखें, केवल योग्यता नहीं।</li><li>सकारात्मक, आगे बढ़ने वाले लोगों की संगत बनाएँ।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>दुखी लोगों से पूरी तरह कटना कठोर भी हो सकता है; सहानुभूति और आत्म-रक्षा में संतुलन रखें।</p></aside>
+</article>
+<article class="law" id="law-11" style="--tc:#2e6f63">
+  <header class="law-head">
+    <div class="law-num">11</div>
+    <div class="law-titles">
+      <h3 class="law-hi">लोगों को अपना आश्रित बनाकर रखना सीखें</h3>
+      <div class="law-en">Learn to Keep People Dependent on You</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">निर्भरता व नियंत्रण</span></div>
+  <p class="gist">आपकी सुरक्षा और शक्ति उतनी ही है जितनी दूसरों की आप पर निर्भरता।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>जो व्यक्ति दूसरों के लिए अपरिहार्य होता है, वह सुरक्षित रहता है। यदि लोग आपके बिना अपना काम नहीं चला सकते, तो वे आपको नुकसान नहीं पहुँचाएँगे। इसलिए ऐसा ज्ञान, संपर्क या कौशल बनाए रखें जिसकी दूसरों को निरंतर ज़रूरत हो।</p><p>साथ ही, दूसरों के भरोसे पूरी तरह मत जिएँ। अपनी स्वतंत्रता बनाए रखें और यह सुनिश्चित करें कि आपकी ज़रूरत उनके लिए बनी रहे। जो अपने लिए अपरिहार्य बना लेता है, वह बिना पद के भी शक्तिशाली रहता है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>दरबारों में वह मंत्री सबसे सुरक्षित रहता था जिसके पास राज्य की सबसे ज़रूरी जानकारी या कौशल होता था।</li><li>कंपनी में वह कर्मचारी सबसे मूल्यवान होता है जिसके बिना महत्वपूर्ण प्रक्रिया रुक जाए।</li><li>एक प्रमुख सलाहकार बन जाना, जिसकी सलाह के बिना कोई बड़ा निर्णय न हो, गहरी शक्ति देता है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>ऐसा कौशल बनाएँ जो टीम या संगठन के लिए अनिवार्य हो।</li><li>अपने काम को प्रलेखित न करके रहस्य न रखें, पर अपनी विशेषज्ञता अद्वितीय बनाएँ।</li><li>दूसरों की मदद करते समय ऐसा मूल्य दें जो लौट-लौटकर आपके पास लाए।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>दूसरों को मजबूरन आश्रित बनाकर रखना उनके विद्रोह को भी जन्म देता है; शक्ति को अत्याचार में न बदलें।</p></aside>
+</article>
+<article class="law" id="law-12" style="--tc:#2e6f63">
+  <header class="law-head">
+    <div class="law-num">12</div>
+    <div class="law-titles">
+      <h3 class="law-hi">चुनिंदा ईमानदारी और उदारता से प्रतिद्वंद्वी को निःशस्त्र करें</h3>
+      <div class="law-en">Use Selective Honesty and Generosity to Disarm Your Victim</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">निर्भरता व नियंत्रण</span></div>
+  <p class="gist">एक ईमानदार क्षण या उदार कार्य दूसरों का संदेह दूर कर देता है और उन्हें सहज बना देता है।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>एक ईमानदार क्षण, या एक अप्रत्याशित उपकार, किसी भी व्यक्ति को आपके प्रति ढीला कर देता है। लोग ईमानदारी और उदारता को सबसे मूल्यवान गुण मानते हैं, इसलिए इसका एक नाटकीय प्रदर्शन उनके बचाव की दीवार गिरा देता है।</p><p>जब विरोधी सहज हो जाए, तब आप अपना असली काम कर सकते हैं। यह नियम यह सिखाता है कि उदारता केवल भावना नहीं, बल्कि एक रणनीति भी है। पर उदारता चुनिंदा और सोच-समझकर होनी चाहिए, अंधाधुंध नहीं।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>ओटो वॉन बिस्मार्क ने कूटनीति में चुनिंदा ईमानदारी और रियायतों का उपयोग करके शत्रुओं को भरोसे में लिया।</li><li>अनेक व्यापारी शुरुआत में भारी छूट या मुफ़्त सेवा देकर ग्राहक का भरोसा जीतते हैं, फिर बाद में कीमत बढ़ाते हैं।</li><li>कभी-कभी एक सच बताकर व्यक्ति दूसरे को यह विश्वास दिला देता है कि वह सब कुछ सच बोल रहा है, जबकि असली धोखा बाद में आता है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>बातचीत में पहले कोई छोटी ईमानदार बात स्वीकार करें ताकि दूसरा खुल जाए।</li><li>ग्राहक या साथी को शुरुआत में उदार लाभ देकर भरोसा बनाएँ।</li><li>संदेह दूर करने के लिए पारदर्शिता का एक प्रदर्शन करें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>इसका दुरुपयोग धोखाधड़ी बन जाता है; ईमानदारी का नाटक लंबे समय में आपका ही भरोसा तोड़ देता है।</p></aside>
+</article>
+<article class="law" id="law-13" style="--tc:#2e6f63">
+  <header class="law-head">
+    <div class="law-num">13</div>
+    <div class="law-titles">
+      <h3 class="law-hi">मदद माँगते समय स्वार्थ को छुएँ, दया या कृतज्ञता को नहीं</h3>
+      <div class="law-en">When Asking for Help, Appeal to People&#x27;s Self-Interest, Never to Their Mercy or Gratitude</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">निर्भरता व नियंत्रण</span></div>
+  <p class="gist">लोग अपने फायदे के लिए मदद करते हैं, आपकी दया या पुराने उपकार के लिए नहीं।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>दया और कृतज्ञता की अपील कमज़ोर बनाती है और अक्सर नाकाम होती है। लोग अपने हित के लिए तेज़ी से काम करते हैं। इसलिए मदद माँगते समय यह दिखाएँ कि उनकी मदद से उन्हें क्या लाभ होगा।</p><p>यदि आप यह समझा दें कि आपकी सफलता से उनका भला है, तो वे स्वयं आगे आएँगे। पुराने उपकार याद दिलाना उन्हें बोझ लगता है, जबकि नया लाभ उन्हें प्रेरित करता है। इसलिए अपनी अपील को उनके स्वार्थ से जोड़ें।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>राजनीति में सहयोगी तब आगे आते हैं जब उन्हें पद या लाभ दिखे, भावनाओं से नहीं।</li><li>निवेशक तब पैसा लगाते हैं जब उन्हें अपनी वापसी का लाभ दिखे, कहानी या सहानुभूति से नहीं।</li><li>कंपनी में अपने प्रस्ताव को तब मंज़ूर कराएँ जब वह कंपनी के लक्ष्य और मुनाफे से जुड़ा दिखे।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>प्रस्ताव लिखते समय दूसरे पक्ष को होने वाला लाभ स्पष्ट करें।</li><li>मदद माँगने से पहले सोचें कि उस व्यक्ति को इससे क्या मिलेगा।</li><li>पुराने उपकारों का रोना न रोएँ, नया लाभ दिखाएँ।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>कभी-कभी सच्चे रिश्ते और भावना भी काम करते हैं; हर अपील को केवल स्वार्थ तक सीमित न करें।</p></aside>
+</article>
+<article class="law" id="law-14" style="--tc:#7d5a3c">
+  <header class="law-head">
+    <div class="law-num">14</div>
+    <div class="law-titles">
+      <h3 class="law-hi">मित्र का रूप धरें, गुप्तचर का काम करें</h3>
+      <div class="law-en">Pose as a Friend, Work as a Spy</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">रहस्य व छिपाव</span></div>
+  <p class="gist">जानकारी ही शक्ति है; मित्रता के आवरण में दूसरों की असली मंशा जानें।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>दूसरों के बारे में जानकारी जुटाना शक्ति का मूल है। लोग मित्र के सामने खुल जाते हैं, अपनी इच्छाएँ और कमज़ोरियाँ बताते हैं। इसलिए मित्रता के आवरण में दूसरों को सुनें, प्रश्न पूछें और उनकी असली मंशा समझें।</p><p>जो व्यक्ति दूसरों को पढ़ना जानता है, वह उन्हें चला सकता है। लोग अपनी बातें स्वयं बता देते हैं यदि आप सुनने में रुचि दिखाएँ। इसलिए श्रोता बनें, और जानकारी को शक्ति में बदलें।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>दरबारों में गुप्तचर और भरोसेमंद दरबारी अक्सर दोहरी भूमिका निभाते थे।</li><li>कई व्यापारी प्रतिस्पर्धी की मंशा जानने के लिए उसके कर्मचारियों से दोस्ती करते हैं।</li><li>जोसफ़ फूशे ने पुलिस और राजनीति में जानकारी के जाल से सबको नियंत्रित किया।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>बातचीत में अधिक सुनें और सूक्ष्म प्रश्न पूछें ताकि दूसरे की असली ज़रूरत समझ आए।</li><li>बाज़ार और प्रतिस्पर्धा की जानकारी नेटवर्क से जुटाएँ।</li><li>नए संपर्कों से उनकी मंशा और विश्वसनीयता का पता लगाएँ।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>इसका अर्थ जासूसी या धोखा नहीं; सामान्य जिज्ञासा और सुनने के कौशल से भी यही जानकारी मिलती है, ईमानदारी से।</p></aside>
+</article>
+<article class="law" id="law-15" style="--tc:#a63d40">
+  <header class="law-head">
+    <div class="law-num">15</div>
+    <div class="law-titles">
+      <h3 class="law-hi">अपने शत्रु को पूरी तरह कुचल दें</h3>
+      <div class="law-en">Crush Your Enemy Totally</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">शत्रु व मित्र</span></div>
+  <p class="gist">आधा-अधूरा शत्रु बदले की आग बनाए रखता है; पूरा नाश ही स्थायी शांति देता है।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>यदि आप अपने शत्रु को हराते हैं पर उसे थोड़ी शक्ति बचने देते हैं, तो वह बदले की आग में लौटेगा। आधा-अधूरा परिणाम सबसे खतरनाक होता है — शत्रु अपमानित होकर और भी प्रतिशोधी बन जाता है। इसलिए या तो पूरी तरह जीतें, या मामले को खत्म ही न करें।</p><p>शत्रु को पूरी तरह कुचलने का अर्थ है उसकी शक्ति, प्रभाव और वापसी की क्षमता समाप्त कर देना। पर यह सोच-समझकर करें, क्योंकि इससे शत्रुता और गहरी भी हो सकती है। यह नियम बताता है कि आधे मन से लड़ना सबसे बड़ी भूल है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>इतिहास में जिन राजाओं ने शत्रुओं को पूरी तरह नष्ट नहीं किया, उनके वंशजों ने बाद में विद्रोह किया।</li><li>व्यापार में प्रतिद्वंद्वी को बाज़ार में थोड़ी जगह देकर छोड़ देना अक्सर उसके पुनरुत्थान का कारण बनता है।</li><li>राजनीति में विरोधी को निर्णायक रूप से हराया न गया तो वह कुछ समय बाद और मजबूत होकर लौटता है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>प्रतिस्पर्धा में निर्णायक बढ़त बनाएँ, आधे-अधूरे समझौते से बचें।</li><li>किसी विवाद को सुलझाते समय जड़ से निपटाएँ ताकि वह दोबारा न उठे।</li><li>अपने लक्ष्य को पूरा करें, अधूरा छोड़कर न भागें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>यह कठोर नियम है; आधुनिक जीवन में शत्रु को नीचा दिखाना या पूरी तरह कुचलना हमेशा व्यावहारिक और नैतिक नहीं होता — कभी-कभी माफ़ी और दूरी अधिक समझदारी है।</p></aside>
+</article>
+<article class="law" id="law-16" style="--tc:#3f5f8a">
+  <header class="law-head">
+    <div class="law-num">16</div>
+    <div class="law-titles">
+      <h3 class="law-hi">अनुपस्थिति से सम्मान और प्रतिष्ठा बढ़ाएँ</h3>
+      <div class="law-en">Use Absence to Increase Respect and Honor</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">समय व मंचन</span></div>
+  <p class="gist">अधिक उपलब्ध होना आपकी कीमत घटा देता है; थोड़ी दूरी और अनुपस्थिति से आपका मूल्य बढ़ता है।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>जो चीज़ हमेशा उपलब्ध होती है, उसकी कीमत घट जाती है। यदि आप हर समय, हर जगह मौजूद रहते हैं, तो लोग आपको हल्के में लेने लगते हैं। कुछ समय के लिए गायब हो जाना, दूरी बनाना, आपके लिए मान और रहस्य बढ़ा देता है।</p><p>अनुपस्थिति में लोग आपकी याद करते हैं, आपकी कमी महसूस करते हैं, और आपके लौटने पर अधिक सम्मान देते हैं। यदि आप बहुत अधिक मिलते-जुलते हैं, तो आपकी उपस्थिति की कीमत गिर जाती है। इसलिए अपनी उपस्थिति को दुर्लभ और मूल्यवान बनाएँ।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>अनेक महान कलाकार और नेता सार्वजनिक रूप से कम आते हैं, जिससे उनकी प्रत्येक उपस्थिति मूल्यवान हो जाती है।</li><li>कुछ समय की दूरी प्रेम और सम्मान को बढ़ाती है; रोज़ मिलना उत्साह घटा देता है।</li><li>राजनीति में नेता अपने भाषण कम रखते हैं ताकि प्रत्येक भाषण एक घटना बने।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>सोशल मीडिया या कार्यक्रमों में हर बार मौजूद न रहें; अपनी उपस्थिति चुनिंदा बनाएँ।</li><li>बातचीत में थोड़ा समय लेकर जवाब दें, हर समय उपलब्ध न दिखें।</li><li>रिश्तों में थोड़ी दूरी और निजी स्थान बनाए रखें, जिससे मान बढ़े।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>अत्यधिक दूरी संबंध तोड़ देती है और अविश्वास पैदा करती है; अनुपस्थिति को माप-समझकर लगाएँ।</p></aside>
+</article>
+<article class="law" id="law-17" style="--tc:#3f5f8a">
+  <header class="law-head">
+    <div class="law-num">17</div>
+    <div class="law-titles">
+      <h3 class="law-hi">दूसरों को अनिश्चितता में रखें: अप्रत्याशितता का आभा बनाएँ</h3>
+      <div class="law-en">Keep Others in Suspended Terror: Cultivate an Air of Unpredictability</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">समय व मंचन</span></div>
+  <p class="gist">यदि लोग आपके अगले कदम का अंदाज़ा न लगा पाएँ, तो वे आपसे डरते और सम्मान करते रहेंगे।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>पूरी तरह पूर्वानुमेय व्यक्ति को लोग हल्के में लेते हैं और चलाते हैं। जब आपका व्यवहार कभी-कभी अप्रत्याशित हो, तो लोग आपको नीचा दिखाने से डरते हैं। यह अनिश्चितता उन्हें सतर्क और आज्ञाकारी बनाए रखती है।</p><p>समय-समय पर अनपेक्षित प्रतिक्रिया दें — कभी नरम, कभी कठोर। पर यह पागलपन नहीं, नियंत्रित रहस्य होना चाहिए। जब लोग आपको समझ न पाएँ, तो वे आपका अनुमान लगाते रहते हैं और अपनी शक्ति खर्च करते हैं। यह नियम नेता को रहस्यमय और प्रभावी बनाए रखता है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>अनेक शासक समय-समय पर क्रूर और कभी उदार होकर दरबारियों को संदेह में रखते थे, जिससे कोई विद्रोह नहीं करता था।</li><li>कुछ कंपनियाँ नीतियों में अप्रत्याशित बदलाव करके बाज़ार को सतर्क रखती हैं।</li><li>खेल या रणनीति में अप्रत्याशित चाल शत्रु को भ्रमित कर देती है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>हर बात पर अपनी प्रतिक्रिया पहले से ज़ाहिर न करें; थोड़ा रहस्य बनाए रखें।</li><li>बातचीत में विकल्प खुले रखें ताकि दूसरा पक्ष आपका अंदाज़ा न लगा सके।</li><li>अपने फैसलों में नियंत्रित अप्रत्याशितता लाएँ, पर भरोसा न तोड़ें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>अत्यधिक अप्रत्याशितता लोगों को दूर कर देती है; रहस्य और विश्वसनीयता में संतुलन रखें।</p></aside>
+</article>
+<article class="law" id="law-18" style="--tc:#6d7b3a">
+  <header class="law-head">
+    <div class="law-num">18</div>
+    <div class="law-titles">
+      <h3 class="law-hi">अपनी रक्षा के लिए किले न बनाएँ — अकेलापन खतरनाक है</h3>
+      <div class="law-en">Do Not Build Fortresses to Protect Yourself - Isolation Is Dangerous</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">आत्म-संयम व स्वतंत्रता</span></div>
+  <p class="gist">अलग-थलग पड़ जाना शक्ति नहीं, आत्मघात है; दुनिया से जुड़े रहें।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>शक्ति लोगों और जानकारी से आती है। यदि आप अपने आप को किले में बंद कर लेते हैं, तो आप दुनिया की खबर और समर्थन खो देते हैं, और शत्रुओं के लिए आसान शिकार बन जाते हैं।</p><p>इतिहास में जो लोग खुद को अलग कर लेते थे, वे भीतर से कमज़ोर पड़ जाते थे और बाहर की हलचल से बेखबर हो जाते थे। इसलिए सुरक्षा के लिए अलगाव नहीं, बल्कि मजबूत संपर्क और सहयोगी बनाएँ। दुनिया के बीच रहें, जुड़े रहें, और सूचना के प्रवाह को जीवित रखें।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>चीन की महान दीवार शत्रुओं को रोक नहीं सकी, क्योंकि शक्ति दीवार में नहीं, भीतर के संगठन और जुड़ाव में थी।</li><li>कई व्यापारी अपने कारोबार को बंद दायरे में चलाते हैं और बाज़ार के बदलाव से चूक जाते हैं।</li><li>राजनीति में जो नेता जनता और सहयोगियों से कट जाता है, वह जल्दी गिर जाता है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>अपना नेटवर्क मजबूत रखें; अकेले निर्णय न लें।</li><li>जानकारी के कई स्रोत रखें, एक पर निर्भर न रहें।</li><li>सहयोग और गठबंधन बनाएँ, अलग-थलग न पड़ें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>हर किसी से खुला रहना भी जोखिम है; जुड़े रहें पर विवेक से, अंधाधुंध नहीं।</p></aside>
+</article>
+<article class="law" id="law-19" style="--tc:#a63d40">
+  <header class="law-head">
+    <div class="law-num">19</div>
+    <div class="law-titles">
+      <h3 class="law-hi">जानें कि आप किससे पेश आ रहे हैं — गलत व्यक्ति को नाराज़ न करें</h3>
+      <div class="law-en">Know Who You Are Dealing With - Do Not Offend the Wrong Person</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">शत्रु व मित्र</span></div>
+  <p class="gist">हर व्यक्ति की प्रतिक्रिया अलग होती है; कुछ लोगों को छेड़ना आत्मघात हो सकता है।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>हर व्यक्ति एक जैसा नहीं होता। कुछ लोग चुपचाप सह लेते हैं, कुछ तुरंत पलटवार करते हैं, और कुछ ऐसे होते हैं जो बदला लेने में जीवन लगा देते हैं। इसलिए किसी को नाराज़ करने से पहले समझें कि वह कैसा व्यक्ति है।</p><p>अपमानित गर्वीले व्यक्ति से बचें, क्योंकि वह अपने बदले के लिए कुछ भी कर सकता है। साथ ही, कमज़ोर दिखने वाले व्यक्ति को भी हल्के में न लें — कभी-कभी वही सबसे खतरनाक होता है। इसलिए किसी को ठेस पहुँचाने से पहले उसकी प्रकृति और शक्ति आँकें।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>कई लोगों ने किसी शक्तिशाली व्यक्ति का अपमान करके अपना ही नुकसान कर लिया।</li><li>दरबारों में चापलूस लोग चुपचाप बदला लेते थे और उनके खिलाफ साज़िश रचते थे।</li><li>आधुनिक दौर में किसी प्रभावशाली व्यक्ति को सोशल मीडिया पर नीचा दिखाना बड़ी कीमत चुका सकता है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>किसी को आलोचना या चुटकी लेने से पहले उसकी स्थिति और स्वभाव समझें।</li><li>नए संपर्क में पहले दोस्ती और सम्मान बनाएँ, फिर मतभेद रखें।</li><li>अपने विरोधियों की असली ताकत का आकलन करें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>अत्यधिक सतर्कता भी अवसर चूक सकती है; विवेक और साहस में संतुलन रखें।</p></aside>
+</article>
+<article class="law" id="law-20" style="--tc:#6d7b3a">
+  <header class="law-head">
+    <div class="law-num">20</div>
+    <div class="law-titles">
+      <h3 class="law-hi">किसी से पूरी तरह बंधे न रहें</h3>
+      <div class="law-en">Do Not Commit to Anyone</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">आत्म-संयम व स्वतंत्रता</span></div>
+  <p class="gist">पूरी निष्ठा किसी एक को देना आपकी स्वतंत्रता और शक्ति छीन लेता है।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>जो व्यक्ति किसी एक पक्ष या व्यक्ति से पूरी तरह बंध जाता है, वह उसकी कमज़ोरी बन जाता है। जब आप निष्पक्ष और स्वतंत्र रहते हैं, तो सभी पक्ष आपको अपनी ओर लाना चाहते हैं और आपकी कीमत बढ़ती है।</p><p>इसका अर्थ विश्वासघात नहीं, बल्कि स्वतंत्रता है। ऐसा व्यक्ति बनें जो किसी भी पक्ष के लिए मूल्यवान हो, पर किसी का पूरी तरह गुलाम न हो। जब दोनों पक्ष आपको चाहें, तब आपके पास वास्तविक शक्ति होती है। अपनी स्वतंत्रता को हर हाल में बचाएँ।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>कूटनीति में कुछ राज्य स्वतंत्र रहकर दोनों महाशक्तियों से लाभ उठाते हैं।</li><li>कुछ बिचौलिए और सलाहकार किसी एक गुट से बंधे बिना सभी से सम्मान पाते हैं।</li><li>राजनीति में स्वतंत्र नेता दोनों दलों के लिए मूल्यवान बना रहता है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>एक ही आपूर्तिकर्ता या ग्राहक पर निर्भर न रहें।</li><li>अपनी पसंद और स्वतंत्रता बनाए रखें, किसी गुट का मोहरा न बनें।</li><li>बातचीत में हमेशा एक विकल्प खुला रखें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>कभी-कभी दीर्घकालीन सफलता के लिए किसी एक के साथ गहरा भरोसा बनाना ज़रूरी होता है; इस नियम को विवेक से लागू करें।</p></aside>
+</article>
+<article class="law" id="law-21" style="--tc:#7d5a3c">
+  <header class="law-head">
+    <div class="law-num">21</div>
+    <div class="law-titles">
+      <h3 class="law-hi">मूर्ख का रूप धरकर दूसरे मूर्ख को पकड़ें — अपने शिकार से अधिक बेवकूफ़ दिखें</h3>
+      <div class="law-en">Play a Sucker to Catch a Sucker - Seem Dumber Than Your Mark</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">रहस्य व छिपाव</span></div>
+  <p class="gist">जो खुद को दूसरे से चतुर दिखाता है, उसे कोई नहीं पकड़ता; बुद्धिमान व्यक्ति भोला दिखता है।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>लोग अपने से अधिक चतुर व्यक्ति से सतर्क रहते हैं। इसलिए अपनी बुद्धि को छिपाएँ और भोलेपन का आवरण धारण करें। जब लोग आपको उनसे कम समझदार मानेंगे, तब वे सहज हो जाएँगे और अपनी असली योजना बता देंगे।</p><p>यह नियम उनके अहंकार को भी खिलाता है — वे सोचते हैं कि वे आपको चला रहे हैं, जबकि असल में आप उन्हें पढ़ रहे हैं। इसलिए कभी अपने पत्ते न खोलें; अपनी बुद्धि को प्रदर्शित करने की इच्छा पर काबू रखें।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>कई व्यापारी सौदे में खुद को अनाड़ी दिखाते हैं ताकि दूसरा पक्ष ढीला हो जाए।</li><li>खेल में खिलाड़ी खुद को कमज़ोर दिखाकर प्रतिद्वंद्वी को भ्रमित करता है।</li><li>गुप्तचर अक्सर खुद को साधारण और भोला दिखाकर जानकारी जुटाते हैं।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>बातचीत में जानबूझकर थोड़ी कम जानकारी दिखाएँ, सब कुछ न बताएँ।</li><li>बैठक में हर बार अपनी बुद्धि का प्रदर्शन न करें।</li><li>जब दूसरा पक्ष कम आँके, तभी अपना असली इरादा पूरा करें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>लंबे समय तक मूर्ख बने रहना आपकी वास्तविक प्रतिष्ठा को भी नुकसान पहुँचा सकता है; समय-समय पर क्षमता दिखाना भी ज़रूरी है।</p></aside>
+</article>
+<article class="law" id="law-22" style="--tc:#6d7b3a">
+  <header class="law-head">
+    <div class="law-num">22</div>
+    <div class="law-titles">
+      <h3 class="law-hi">समर्पण की चाल अपनाएँ: कमज़ोरी को शक्ति में बदलें</h3>
+      <div class="law-en">Use the Surrender Tactic: Transform Weakness Into Power</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">आत्म-संयम व स्वतंत्रता</span></div>
+  <p class="gist">जब हार निश्चित हो, तो हार न मानकर समर्पण को ही शक्ति का हथियार बनाएँ।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>जब आप साफ़ तौर पर कमज़ोर स्थिति में हों, तो लड़ाई जारी रखना आत्म-विनाश है। ऐसे समय में समर्पण करके आप समय और शक्ति बचाते हैं, और विजेता को भरोसे में लेते हैं। समर्पण से विजेता ढीला पड़ जाता है और आप भीतर से तैयारी कर पाते हैं।</p><p>यह नियम युद्ध नहीं, धैर्य सिखाता है। जब तक अवसर न आए, पीछे हटें, शक्ति जुटाएँ, और फिर उठें। इतिहास में अनेक विजेता समर्पण करने वालों को क्षमा कर देते हैं, और बाद में वही शक्ति में लौट आते हैं। समर्पण को अंत नहीं, नई शुरुआत बनाएँ।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>कई कमज़ोर राज्यों ने शक्तिशाली शत्रु के सामने झुककर अपनी जान और संस्कृति बचाई, फिर अवसर पर उठ खड़े हुए।</li><li>व्यापार में जब बाज़ार प्रतिकूल हो, तो नुकसान सहकर बाहर निकलना और बाद में नए सिरे से उठना समझदारी है।</li><li>खेल में पहले पीछे हटकर विरोधी की रणनीति समझना और अंत में पलटवार करना।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>जब स्थिति प्रतिकूल हो, तो जिद न करें; पीछे हटकर तैयारी करें।</li><li>असहमति में टकराव से बचें, समय के साथ अपना पक्ष मजबूत करें।</li><li>नौकरी या बिज़नेस में संकट के समय झुककर अवसर की प्रतीक्षा करें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>हर समर्पण समझदारी नहीं होती; यदि स्थिति बदल सकती है तो लड़ना भी आवश्यक है — विवेक रखें।</p></aside>
+</article>
+<article class="law" id="law-23" style="--tc:#6d7b3a">
+  <header class="law-head">
+    <div class="law-num">23</div>
+    <div class="law-titles">
+      <h3 class="law-hi">अपनी शक्ति को केंद्रित करें</h3>
+      <div class="law-en">Concentrate Your Forces</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">आत्म-संयम व स्वतंत्रता</span></div>
+  <p class="gist">शक्ति बिखरने से क्षीण होती है; उसे एक लक्ष्य पर केंद्रित करने से वह प्रचंड होती है।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>कम शक्ति भी यदि एक स्थान पर केंद्रित हो, तो बड़ी शक्ति को हरा सकती है। इसके विपरीत, बड़ी शक्ति भी यदि बिखरी हो, तो कमज़ोर पड़ जाती है। इसलिए अपनी ऊर्जा, समय और संसाधनों को एक ही लक्ष्य पर केंद्रित करें।</p><p>एक समय में एक ही महत्वपूर्ण लक्ष्य पर ध्यान दें। जो हर जगह अपना ध्यान बाँटता है, वह कहीं भी पूरा सफल नहीं होता। एक बिंदु पर सारी शक्ति लगाना — यही असली रणनीति है। जैसे सूरज की किरणें लेंस से एक बिंदु पर केंद्रित हों तो आग लगा दें।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>अलेक्जेंडर और नेपोलियन ने अपनी सेना को एक स्थान पर केंद्रित करके बड़ी सेनाओं को हराया।</li><li>सफल कंपनियाँ एक ही उत्पाद या बाज़ार पर पहले पूरी ताकत लगाती हैं, फिर फैलती हैं।</li><li>अध्ययन या करियर में एक क्षेत्र में गहराई पाना, कई क्षेत्रों में उथलेपन से बेहतर है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>एक समय में एक ही बड़ा लक्ष्य चुनें और उस पर पूरा ध्यान दें।</li><li>संसाधनों को बिखराएँ नहीं, सबसे ज़रूरी जगह लगाएँ।</li><li>अपनी सबसे मजबूत ताकत पर निवेश करें, कमज़ोरियों में न उलझें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>अत्यधिक केंद्रीकरण में जोखिम भी है — एक लक्ष्य विफल हो तो सब कुछ दाँव पर लग सकता है; कुछ विकल्प बनाए रखें।</p></aside>
+</article>
+<article class="law" id="law-24" style="--tc:#b07d2b">
+  <header class="law-head">
+    <div class="law-num">24</div>
+    <div class="law-titles">
+      <h3 class="law-hi">आदर्श दरबारी की भूमिका निभाएँ</h3>
+      <div class="law-en">Play the Perfect Courtier</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">दरबारी कूटनीति</span></div>
+  <p class="gist">सत्ता के दरबार में चतुर, लचीला और कुशल रहें — शक्ति के केंद्र के निकट रहें, पर कभी खतरा न बनें।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>सत्ता के केंद्र में रहना शक्ति का स्रोत है, पर वहाँ सबसे अधिक खतरा भी है। आदर्श दरबारी वह है जो शक्तिशाली लोगों के निकट रहता है, उनकी मर्ज़ी को पहले भाँप लेता है, उनकी प्रशंसा में कभी कंजूसी नहीं करता, पर कभी उनके अहंकार को ठेस नहीं पहुँचाता।</p><p>उसे कूटनीति, लचीलापन, धैर्य और समझ की ज़रूरत होती है। वह अपनी राय ऐसे रखता है कि लगे सामने वाले की ही राय थी। वह अपने स्वामी को खुश रखते हुए अपना रास्ता भी बनाता है। जो इस कला को सीख लेता है, वह बिना पद के भी प्रभावशाली हो जाता है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>फ्रांस के दरबार में सेंट-साइमन और अन्य कुशल दरबारियों ने कूटनीति से बड़ा प्रभाव पाया।</li><li>अकबर के दरबार में टोडरमल और बीरबल ने सुझाव देने की कला से राजा के विश्वासपात्र बने रहे।</li><li>आधुनिक कॉर्पोरेट में वह कर्मचारी आगे बढ़ता है जो नेतृत्व की भाषा समझता और सूक्ष्म कूटनीति में माहिर होता है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>अपने नेतृत्व की प्राथमिकताएँ पहले समझें और उसी दिशा में काम करें।</li><li>सुझाव दें पर श्रेय उन्हें दें; कभी सार्वजनिक मतभेद न करें।</li><li>अपने स्वामी की कमज़ोरियों का लाभ न उठाएँ, बल्कि उनकी रक्षा करें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>अत्यधिक चापलूसी और कूटनीति भी आपकी साख गिरा देती है; चरित्र और ईमानदारी भी बनाए रखें।</p></aside>
+</article>
+<article class="law" id="law-25" style="--tc:#c9a227">
+  <header class="law-head">
+    <div class="law-num">25</div>
+    <div class="law-titles">
+      <h3 class="law-hi">स्वयं को फिर से गढ़ें</h3>
+      <div class="law-en">Re-Create Yourself</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">छवि व प्रतिष्ठा</span></div>
+  <p class="gist">अपनी पहचान, छवि और व्यक्तित्व को स्वयं की रचना बनाएँ, परिस्थिति का पुतला नहीं।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>आपकी छवि और पहचान आपकी शक्ति का साधन हैं। यदि आप उन्हें स्वयं नहीं गढ़ेंगे, तो दुनिया आपके लिए एक छवि बना देगी। इसलिए अपने व्यक्तित्व, शैली और प्रस्तुति को जानबूझकर रचें। जरूरत पड़े तो खुद को पूरी तरह बदल दें — नया रूप, नई भूमिका, नई छवि।</p><p>जो व्यक्ति बदल सकता है, वह स्थितियों से नहीं बहता। नाटकीयता और मंचन से आप अपनी छवि को अधिक प्रभावी बना सकते हैं। इतिहास में बड़े नेताओं ने खुद को प्रतीक की तरह गढ़ा — एक आदर्श, एक पात्र, एक पौराणिक छवि।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>कई सम्राटों ने अपने लिए दिव्य या महान छवि गढ़ी, जिससे जनता उन्हें देवता मानने लगी।</li><li>अभिनेता और कलाकार अपनी छवि को जानबूझकर बदलते रहते हैं ताकि वे हमेशा ताज़ा बने रहें।</li><li>कुछ नेताओं ने अपनी वेशभूषा और भाषण-शैली से एक ऐसा व्यक्तित्व गढ़ा जो लोगों के दिलों में बस गया।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>अपनी प्रोफ़ाइल और छवि को सोच-समझकर बनाएँ।</li><li>जब पुरानी पहचान बोझ बने, तो साहसपूर्वक नई शुरुआत करें।</li><li>अपनी प्रस्तुति, वेशभूषा और भाषा को लक्ष्य के अनुसार ढालें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>छवि के पीछे असली व्यक्ति खो न जाए; प्रामाणिकता के बिना रची छवि जल्दी ढह जाती है।</p></aside>
+</article>
+<article class="law" id="law-26" style="--tc:#6d7b3a">
+  <header class="law-head">
+    <div class="law-num">26</div>
+    <div class="law-titles">
+      <h3 class="law-hi">अपने हाथ साफ़ रखें</h3>
+      <div class="law-en">Keep Your Hands Clean</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">आत्म-संयम व स्वतंत्रता</span></div>
+  <p class="gist">गंदा काम दूसरों से कराएँ, पर अपनी छवि पर दाग न लगने दें।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>नेता की छवि उसकी शक्ति है, और गंदे काम उस छवि को खराब करते हैं। इसलिए जो काम अपनी साख पर दाग लगा सकते हैं, वे दूसरों के हाथों कराएँ, जबकि स्वयं मुख्य कार्य के श्रेय और प्रशंसा को पाएँ।</p><p>इसका अर्थ है मुखौटा बनाए रखना — कठोर निर्णय लेते समय भी सौम्य और न्यायपूर्ण दिखना। अगर गलती हो जाए, तो उसका दोष अपने सहयोगियों पर डालने की कला सीखें, पर इसका दुरुपयोग न करें। शक्ति बनाए रखने के लिए अपनी प्रतिष्ठा को निर्दोष बनाए रखना आवश्यक है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>अनेक शासकों ने अप्रिय काम अपने मंत्रियों और सेनापतियों से करवाए और स्वयं न्यायपूर्ण बने रहे।</li><li>कंपनियाँ कठोर छँटनी या नीतियाँ मैनेजरों के ज़रिए लागू कराती हैं, जिससे नेतृत्व की छवि साफ़ रहती है।</li><li>राजनीति में नेता कठोर निर्णय पार्टी के माध्यम से लेते हैं और स्वयं जनता के सामने सौम्य बने रहते हैं।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>अप्रिय निर्णय टीम या प्रक्रिया के ज़रिए लागू करें।</li><li>अपनी छवि को निष्पक्ष और दयालु बनाए रखें।</li><li>गलतियों की ज़िम्मेदारी सोच-समझकर वितरित करें, पर अत्याचार न करें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>सारा दोष दूसरों पर डालना आपके सहयोगियों का विश्वास तोड़ देता है; यह नियम सोच-समझकर लागू करें।</p></aside>
+</article>
+<article class="law" id="law-27" style="--tc:#2e6f63">
+  <header class="law-head">
+    <div class="law-num">27</div>
+    <div class="law-titles">
+      <h3 class="law-hi">लोगों की आस्था की भूख का उपयोग करके अनुयायी बनाएँ</h3>
+      <div class="law-en">Play on People&#x27;s Need to Believe to Create a Cultlike Following</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">निर्भरता व नियंत्रण</span></div>
+  <p class="gist">लोग किसी विश्वास, उद्देश्य या नेता की तलाश में रहते हैं; उन्हें वह देकर आप उन्हें अपना बना सकते हैं।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>लोग अर्थ और विश्वास की तलाश में रहते हैं। जो व्यक्ति उन्हें एक मकसद, एक सपना और एक दिशा देता है, वे उसके पीछे चल पड़ते हैं। इसलिए एक आकर्षक उद्देश्य गढ़ें, उसमें जोश और अनुष्ठान भरें, और लोगों को अपना बना लें।</p><p>भीड़ को शब्दों और भावना से बाँधना शक्ति का सबसे प्रभावी साधन है। पर यह नियम बड़ी ज़िम्मेदारी के साथ आता है — जो नेता भीड़ की आस्था का दुरुपयोग करता है, वह उसे विनाश की ओर भी ले जा सकता है। इसलिए यह साधन शक्तिशाली भी है और खतरनाक भी।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>इतिहास में कई आंदोलनों और धार्मिक संप्रदायों ने विश्वास और भावना से अनुयायी बनाए।</li><li>कुछ कंपनियाँ एक मज़बूत ब्रांड-विश्वास गढ़कर वफ़ादार ग्राहक-समुदाय बना लेती हैं।</li><li>राजनीतिक नेता एक सपने और उद्देश्य के ज़रिए विशाल जनसमर्थन जुटाते हैं।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>एक स्पष्ट उद्देश्य और दृष्टि बनाएँ जिससे लोग जुड़ सकें।</li><li>भाषण और संवाद में भावना और कहानी का उपयोग करें।</li><li>टीम या समुदाय में साझा मूल्य और पहचान गढ़ें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>आस्था का दुरुपयोग भीड़ को अंधा और हिंसक बना सकता है; इस शक्ति का उपयोग ज़िम्मेदारी और नैतिकता से करें।</p></aside>
+</article>
+<article class="law" id="law-28" style="--tc:#3f5f8a">
+  <header class="law-head">
+    <div class="law-num">28</div>
+    <div class="law-titles">
+      <h3 class="law-hi">साहस के साथ कार्रवाई में उतरें</h3>
+      <div class="law-en">Enter Action With Boldness</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">समय व मंचन</span></div>
+  <p class="gist">झिझक और शर्म हार की जननी हैं; साहस से उतरने पर आधी लड़ाई पहले ही जीत ली जाती है।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>जो व्यक्ति झिझक और संकोच के साथ काम शुरू करता है, वह अपने कमज़ोर आत्मविश्वास की गंध चारों ओर फैला देता है। लोग इसे भाँप लेते हैं और उस पर हावी हो जाते हैं। इसके विपरीत, साहस के साथ उतरा गया कदम बाकी सबको पीछे हटने पर मजबूर कर देता है।</p><p>साहस नैतिकता से नहीं, बल्कि निर्णायकता से आता है। यदि आप कोई काम कर रहे हैं, तो उसे पूरे आत्मविश्वास से करें। छोटी-सी भूल भी साहस के साथ की जाए तो बड़ी दिखती है, और बड़ी उपलब्धि भी संकोच के साथ की जाए तो फीकी लगती है। कुछ भी करें, तो पूरी शान से करें।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>कई विजेता सेनापतियों ने निर्णायक क्षण में साहसिक हमला करके बड़ी जीत पाई।</li><li>व्यापार में नए बाज़ार में साहसपूर्वक उतरने वाली कंपनियाँ अक्सर बाज़ी मार लेती हैं।</li><li>करियर में साहसिक बदलाव करने वाले लोग झिझकने वालों से आगे निकल जाते हैं।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>कोई बड़ा कदम उठाना हो तो पूरे आत्मविश्वास से उठाएँ।</li><li>प्रस्तुति और बातचीत में स्पष्ट और दृढ़ रहें।</li><li>निर्णय में देरी न करें; सही समय पर साहस दिखाएँ।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>साहस और जल्दबाज़ी में अंतर है; बिना सोचे-समझे उठाया कदम विपत्ति भी ला सकता है।</p></aside>
+</article>
+<article class="law" id="law-29" style="--tc:#6d7b3a">
+  <header class="law-head">
+    <div class="law-num">29</div>
+    <div class="law-titles">
+      <h3 class="law-hi">अंत तक की योजना बनाएँ</h3>
+      <div class="law-en">Plan All the Way to the End</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">आत्म-संयम व स्वतंत्रता</span></div>
+  <p class="gist">जो अपने लक्ष्य से आगे की सोचता है, वह कभी बेवकूफ़ नहीं बनता; हर परिणाम, बाधा और मोड़ पहले देखें।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>लोग बड़ी योजना शुरू करते हैं, पर अंत तक नहीं सोचते। इससे वे बीच में फँस जाते हैं और हार मान बैठते हैं। इसलिए योजना बनाते समय अंत तक सोचें — हर संभावित परिणाम, हर रुकावट, हर विरोध। जो अंत देख लेता है, वह कभी आश्चर्यचकित नहीं होता।</p><p>जब आप सारे रास्ते और परिणाम पहले ही देख लेते हैं, तो लोग आपको भ्रमित नहीं कर पाते और आप शांत रहते हैं। इससे आप कभी शर्मिंदा नहीं होते और आगे के लिए तैयार रहते हैं। सफलता की कुंजी है पूरी यात्रा को पहले ही मन में देख लेना।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>चाणक्य ने नंद वंश के पतन से लेकर चंद्रगुप्त के राज्याभिषेक तक की पूरी योजना बनाई थी।</li><li>कई सफल कंपनियाँ उत्पाद लॉन्च से पहले हर परिदृश्य और प्रतिक्रिया की योजना बनाती हैं।</li><li>शतरंज में जीतने वाला खिलाड़ी हर चाल से पहले अंत की कई चालें सोचता है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>बड़ा प्रोजेक्ट शुरू करने से पहले सभी चरण और परिणाम लिखें।</li><li>हर निर्णय के संभावित खतरों और प्रतिक्रियाओं का आकलन करें।</li><li>अंत देखकर कदम बढ़ाएँ, ताकि बीच में भ्रमित न हों।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>अत्यधिक योजना में अवसर भी चूक सकते हैं; योजना बनाएँ पर लचीलापन बनाए रखें।</p></aside>
+</article>
+<article class="law" id="law-30" style="--tc:#c9a227">
+  <header class="law-head">
+    <div class="law-num">30</div>
+    <div class="law-titles">
+      <h3 class="law-hi">अपनी उपलब्धियों को सहज दिखाएँ</h3>
+      <div class="law-en">Make Your Accomplishments Seem Effortless</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">छवि व प्रतिष्ठा</span></div>
+  <p class="gist">अपनी मेहनत का रोना न रोएँ; कठिन काम को सहजता से किए हुए दिखाएँ।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>जो व्यक्ति अपनी मेहनत का प्रदर्शन करता है, वह अक्सर सहानुभूति पाता है, प्रशंसा नहीं। इसके विपरीत, जो कठिन काम को भी सहजता और सहज आकर्षण के साथ करता है, वह देवताओं जैसा लगता है। इसलिए अपने प्रयास को छिपाएँ और केवल परिणाम को चमकने दें।</p><p>यह प्राकृतिक प्रतिभा का भ्रम पैदा करता है, जो लोगों को प्रभावित और आकर्षित करता है। अगर आप सफलता के लिए पसीना बहाते दिखेंगे, तो लोग समझेंगे कि कोई भी यह कर सकता है। पर यदि वह सहज और सुंदर लगे, तो वह रहस्यमय और प्रभावी बन जाती है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>अनेक महान कलाकार और कलाकार अपनी मंच-उपस्थिति में सहजता का भ्रम रचते थे, जबकि पीछे कड़ी मेहनत होती थी।</li><li>कुछ वक्ता भाषण में इतने सहज लगते हैं कि श्रोता उन्हें जन्मजात प्रतिभा मान लेते हैं।</li><li>सफल खिलाड़ी जटिल चालों को सहज अंदाज़ में करते हैं, जिससे वे अजेय लगते हैं।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>काम करते समय अपनी मेहनत की कहानी न सुनाएँ, परिणाम दिखाएँ।</li><li>प्रस्तुति में सहज, आत्मविश्वासी और सरल रहें।</li><li>कठिन कार्य को भी हल्के-फुल्के ढंग से करें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>सहजता का भ्रम अत्यधिक न बने, वरना लोग आपके प्रयास को महत्वहीन मानकर आपका श्रेय कम कर देंगे।</p></aside>
+</article>
+<article class="law" id="law-31" style="--tc:#2e6f63">
+  <header class="law-head">
+    <div class="law-num">31</div>
+    <div class="law-titles">
+      <h3 class="law-hi">विकल्पों पर नियंत्रण रखें: दूसरों से वही पत्ते खिलवाएँ जो आप चाहते हैं</h3>
+      <div class="law-en">Control the Options: Get Others to Play With the Cards You Deal</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">निर्भरता व नियंत्रण</span></div>
+  <p class="gist">चुनाव का भ्रम दें, पर असली विकल्प आप तय करें — जिससे वे आपकी इच्छा ही चुनें।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>जब आप किसी को विकल्प देते हैं, तो लगता है कि उसने स्वयं चुना। पर असली शक्ति उसमें है जो विकल्प तय करता है। इसलिए ऐसे विकल्प प्रस्तुत करें जिनमें से कोई भी चुनाव आपके हित में हो। यह स्वतंत्रता का भ्रम देकर नियंत्रण का तरीका है।</p><p>अपने शिकार को लगे कि उसने अपनी मर्ज़ी से फैसला लिया, जबकि वह आपके ही जाल में है। यह उन लोगों पर भी लागू होता है जो सोचते हैं कि वे आपको चला रहे हैं। इसलिए हमेशा पहले से विकल्प तय करें, और उन्हें स्वतंत्र चुनाव का एहसास दें।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>नेता जनता को ऐसे विकल्प देते हैं जिनमें दोनों उनके हित में हों।</li><li>व्यापारी तीन पैकेज दिखाते हैं जिसमें से जो चुनना चाहते हैं वह मध्य या महँगा होता है।</li><li>राजनीति में सरकार दो विकल्प देकर विपक्ष को फँसा देती है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>बातचीत में विकल्प ऐसे रखें जिनमें से कोई भी आपके अनुकूल हो।</li><li>ग्राहक को कई पैकेज दें, पर लाभकारी विकल्प सामने रखें।</li><li>टीम के निर्णयों में दिशा निर्धारित करें, पर चुनाव का भ्रम दें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>इसका दुरुपयोग लोगों को ठगने जैसा है; पारदर्शिता और ईमानदारी बनाए रखें।</p></aside>
+</article>
+<article class="law" id="law-32" style="--tc:#2e6f63">
+  <header class="law-head">
+    <div class="law-num">32</div>
+    <div class="law-titles">
+      <h3 class="law-hi">लोगों की कल्पनाओं से खेलें</h3>
+      <div class="law-en">Play to People&#x27;s Fantasies</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">निर्भरता व नियंत्रण</span></div>
+  <p class="gist">लोग कड़वी सच्चाई से भागते हैं और मीठी कल्पना की ओर खिंचते हैं; उन्हें वह दें।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>सच्चाई कठोर और नीरस होती है, इसलिए लोग उससे दूर भागते हैं। वे सपनों, रोमांच और कल्पना की ओर खिंचते हैं। जो व्यक्ति उन्हें एक सुंदर सपना, एक रोमांचक संभावना देता है, वे उसके पीछे चल पड़ते हैं।</p><p>इसलिए केवल तथ्य न बेचें, बल्कि एक अनुभव, एक कहानी, एक सपना बेचें। जो उनके भीतर की इच्छा को छू ले, वह उन्हें बाँध लेता है। लोग तर्क से नहीं, भावना और कल्पना से प्रेरित होते हैं। यह नियम मनोविज्ञान पर आधारित है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>विज्ञापन अक्सर उत्पाद नहीं, बल्कि एक सपना और जीवनशैली बेचते हैं।</li><li>कुछ नेता जनता को एक महान भविष्य का सपना दिखाकर समर्थन जुटाते हैं।</li><li>जुए और लॉटरी लोगों को अमीर बनने की कल्पना से खींचती है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>प्रस्तुति में तथ्यों के साथ एक प्रेरक दृष्टि और कहानी जोड़ें।</li><li>ग्राहक को उत्पाद से मिलने वाले अनुभव और लाभ की कल्पना दिखाएँ।</li><li>टीम को भविष्य की सफलता का सपना दिखाकर प्रेरित करें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>झूठे सपने बेचना लंबे समय में विश्वास तोड़ देता है; कल्पना को सच्ची संभावना से जोड़ें।</p></aside>
+</article>
+<article class="law" id="law-33" style="--tc:#2e6f63">
+  <header class="law-head">
+    <div class="law-num">33</div>
+    <div class="law-titles">
+      <h3 class="law-hi">हर व्यक्ति का कमज़ोर बिंदु खोजें</h3>
+      <div class="law-en">Discover Each Man&#x27;s Thumbscrew</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">निर्भरता व नियंत्रण</span></div>
+  <p class="gist">हर व्यक्ति में कोई न कोई ऐसी चाबी होती है जिससे उसे चलाया जा सकता है; उसे खोजें और उपयोग करें।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>हर व्यक्ति के भीतर एक ऐसी इच्छा, भय, गर्व या कमज़ोरी होती है जिससे उसे प्रभावित किया जा सकता है — जैसे पुराने पियानो को सुर में लाने वाला पेच। इस &#x27;थम्बस्क्रू&#x27; को खोज लेना ही शक्ति का सूत्र है। कुछ लोगों को धन से, कुछ को प्रशंसा से, कुछ को भय से चलाया जा सकता है।</p><p>जब आप यह जान लेते हैं कि किसी व्यक्ति को क्या चाहिए या किससे डरता है, तो आप उसे आसानी से मोड़ सकते हैं। इसलिए लोगों को ध्यान से देखें, सुनें और समझें। जो अपनी असली इच्छा और भय छिपाता है, वह सबसे मजबूत होता है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>कई व्यापारी जानते हैं कि किस ग्राहक को छूट चाहिए और किसे प्रतिष्ठा — और उसी को छेड़कर सौदा करते हैं।</li><li>राजनीति में नेता हर विधायक की महत्वाकांक्षा जानकर समर्थन जुटाते हैं।</li><li>कंपनियाँ जानती हैं कि कर्मचारी को पद चाहिए या सुरक्षा, और उसी के अनुसार उसे प्रेरित करती हैं।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>बातचीत से पहले समझें कि सामने वाले की असली प्रेरणा क्या है।</li><li>टीम को प्रेरित करने के लिए हर व्यक्ति की अलग ज़रूरत पहचानें।</li><li>ग्राहक की असली इच्छा जानकर उसी को अपील करें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>किसी की कमज़ोरी का दुरुपयोग अनैतिक है और भरोसा तोड़ता है; इस ज्ञान का उपयोग समझ और सहयोग के लिए करें।</p></aside>
+</article>
+<article class="law" id="law-34" style="--tc:#c9a227">
+  <header class="law-head">
+    <div class="law-num">34</div>
+    <div class="law-titles">
+      <h3 class="law-hi">अपने ही अंदाज़ में शाही बनें: राजा की तरह व्यवहार करें, ताकि आपसे राजा जैसा व्यवहार हो</h3>
+      <div class="law-en">Be Royal in Your Own Fashion: Act Like a King to Be Treated Like One</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">छवि व प्रतिष्ठा</span></div>
+  <p class="gist">लोग आपको वैसे ही देखते हैं जैसे आप स्वयं को प्रस्तुत करते हैं; शाही आत्मविश्वास आपको शाही सम्मान दिलाता है।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>आत्मविश्वास और गरिमा एक आत्म-पूर्ति वाली भविष्यवाणी है। यदि आप स्वयं को महत्वपूर्ण और शाही मानकर चलते हैं, तो लोग भी आपको वैसे ही देखने लगते हैं। इसके विपरीत, जो स्वयं को छोटा मानता है, उसे दुनिया भी छोटा समझती है।</p><p>इसका अर्थ दंभ नहीं, बल्कि आत्म-सम्मान और गरिमा है। अपने तरीके, वेशभूषा और व्यवहार में एक स्तर बनाएँ। क्रिस्टोफर कोलंबस ने कभी अपने सपने को छोटा नहीं माना और अंततः महासागर पार किया। राजसी आचरण धीरे-धीरे वास्तविक सम्मान में बदल जाता है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>क्रिस्टोफर कोलंबस ने साधारण पृष्ठभूमि से होकर भी राजाओं जैसा आत्मविश्वास रखा और उन्हें भी अपने सपने में शामिल कर लिया।</li><li>कई व्यापारी पहले दिन से ही उच्च स्तरीय प्रस्तुति और गरिमा बनाए रखते हैं, जिससे ग्राहक भरोसा करते हैं।</li><li>सफल नेता अपने आचरण में ऐसी गरिमा रखते हैं कि लोग स्वयं उनका सम्मान करने लगते हैं।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>अपनी प्रस्तुति और व्यवहार में गरिमा बनाए रखें।</li><li>स्वयं को कभी कम न आँकें; उच्च मानक रखें।</li><li>अपने काम और संबंधों में शाही स्तर बनाएँ।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>आत्म-सम्मान और अहंकार में अंतर है; दिखावा और घमंड लोगों को दूर कर देता है।</p></aside>
+</article>
+<article class="law" id="law-35" style="--tc:#3f5f8a">
+  <header class="law-head">
+    <div class="law-num">35</div>
+    <div class="law-titles">
+      <h3 class="law-hi">समय की कला में माहिर बनें</h3>
+      <div class="law-en">Master the Art of Timing</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">समय व मंचन</span></div>
+  <p class="gist">कभी जल्दबाज़ी न करें, पर जब समय आए तो निर्णायक रूप से झपटें।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>समय सबसे बड़ी शक्ति है। जो समय से पहले उतरता है, वह असफल होता है; जो बहुत देर करता है, वह अवसर खो देता है। इसलिए धैर्य के साथ प्रतीक्षा करें और सही क्षण पर निर्णायक होकर कार्य करें।</p><p>शक्ति का रहस्य यह है कि आप अनुकूल समय की प्रतीक्षा करें और जब वह आए तो बिना झिझक आगे बढ़ें। आवश्यकता पड़े तो समय को अपने अनुकूल बनाएँ — घटनाओं को उकसाएँ, प्रतीक्षा करें और सही मौके पर हमला करें। जो समय को समझता है, वह इतिहास बनाता है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>अनेक विजयों का रहस्य सही समय पर किया गया निर्णायक हमला था, न कि केवल शक्ति।</li><li>निवेश में सही समय पर खरीदना और बेचना बड़ी संपत्ति बनाता है।</li><li>राजनीति में नेता जनमत के अनुकूल क्षण पर ही बड़ा फैसला लेते हैं।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>महत्वपूर्ण निर्णय के लिए सही समय की प्रतीक्षा करें।</li><li>प्रस्ताव या माँग तब रखें जब दूसरा पक्ष ग्रहणशील हो।</li><li>जब अवसर आए, तो बिना देर निर्णायक होकर आगे बढ़ें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>कभी-कभी लंबी प्रतीक्षा अवसर खो देती है; धैर्य और साहस में संतुलन रखें।</p></aside>
+</article>
+<article class="law" id="law-36" style="--tc:#6d7b3a">
+  <header class="law-head">
+    <div class="law-num">36</div>
+    <div class="law-titles">
+      <h3 class="law-hi">जो आपको नहीं मिल सकता उसकी उपेक्षा करें: अनदेखा करना ही सर्वोत्तम बदला है</h3>
+      <div class="law-en">Disdain Things You Cannot Have: Ignoring Them Is the Best Revenge</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">आत्म-संयम व स्वतंत्रता</span></div>
+  <p class="gist">छोटी चीज़ों की परवाह करके आप उन्हें महत्व देते हैं; उन्हें अनदेखा करना आपकी श्रेष्ठता दिखाता है।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>जो वस्तु या व्यक्ति आपके हाथ नहीं आ सकता, उसके पीछे दौड़ना या उससे जलना आपकी कमज़ोरी दिखाता है। इसके विपरीत, उसे पूरी तरह अनदेखा करना, मानो वह अस्तित्व में ही न हो, आपकी श्रेष्ठता और आत्म-संयम को दर्शाता है।</p><p>अनदेखा करने की शक्ति बड़ी है — यह विरोधी को भी हतोत्साहित करती है और आपकी ऊर्जा बचाती है। जो आपके ध्यान के योग्य नहीं, उसे ध्यान देकर आप उसे शक्ति देते हैं। इसलिए उपेक्षा को अपना हथियार बनाएँ — यह कभी-कभी सबसे तीखा जवाब होता है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>कई महान व्यक्तियों ने अपने आलोचकों को पूरी तरह अनदेखा करके उन्हें शक्तिहीन बना दिया।</li><li>व्यापार में प्रतिद्वंद्वी की छोटी चालों पर ध्यान न देकर आप अपना ध्यान अपने लक्ष्य पर रख सकते हैं।</li><li>सोशल मीडिया पर ट्रोल्स को अनदेखा करना उन्हें सबसे अधिक चुभता है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>छोटी बातों और आलोचनाओं पर ऊर्जा न लगाएँ।</li><li>जो आपके हाथ न आए, उसके पीछे दुखी न हों।</li><li>उपेक्षा को चुनिंदा रूप से जवाब का हथियार बनाएँ।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>अनदेखा करना और समस्याओं से भागना अलग है; ज़रूरी चीज़ों को नज़रअंदाज़ न करें।</p></aside>
+</article>
+<article class="law" id="law-37" style="--tc:#c9a227">
+  <header class="law-head">
+    <div class="law-num">37</div>
+    <div class="law-titles">
+      <h3 class="law-hi">प्रभावशाली दृश्य/नाटक रचें</h3>
+      <div class="law-en">Create Compelling Spectacles</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">छवि व प्रतिष्ठा</span></div>
+  <p class="gist">शब्दों से ज़्यादा दृश्य और प्रतीक लोगों के मन में गहराई तक बैठते हैं; नाटकीयता से शक्ति बढ़ाएँ।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>लोग बातों को भूल जाते हैं, पर दृश्यों को याद रखते हैं। एक प्रभावशाली नाटक, एक भव्य आयोजन या एक शक्तिशाली प्रतीक लोगों के मन में गहरा असर छोड़ता है और आपकी शक्ति को बढ़ा देता है।</p><p>इसलिए अपनी बात को केवल कहें नहीं, बल्कि दिखाएँ। भव्यता, प्रतीक और नाटकीयता से लोगों को मंत्रमुग्ध करें। जो व्यक्ति मंच को जीत लेता है, वह मन भी जीत लेता है। आधुनिक युग में मीडिया, विज्ञापन और आयोजन इसी कला के रूप हैं।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>राजा अपने राज्याभिषेक, परेड और भव्य आयोजनों से जनता को प्रभावित करते थे।</li><li>कुछ नेताओं ने बड़े जनसमूह और भव्य प्रतीकों के ज़रिए अपनी छवि अमर बनाई।</li><li>आधुनिक कंपनियाँ भव्य लॉन्च इवेंट और विज्ञापनों से बाज़ार में छा जाती हैं।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>प्रस्तुति या आयोजन को यादगार और प्रभावशाली बनाएँ।</li><li>प्रतीकों और दृश्यों से अपनी बात को सशक्त करें।</li><li>अपनी उपलब्धियों को प्रभावशाली ढंग से प्रस्तुत करें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>केवल दिखावा और खोखला नाटक लंबे समय में अविश्वास पैदा करता है; दृश्य के पीछे सार होना चाहिए।</p></aside>
+</article>
+<article class="law" id="law-38" style="--tc:#7d5a3c">
+  <header class="law-head">
+    <div class="law-num">38</div>
+    <div class="law-titles">
+      <h3 class="law-hi">मन में जो चाहें सोचें, पर व्यवहार दूसरों जैसा करें</h3>
+      <div class="law-en">Think as You Like but Behave Like Others</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">रहस्य व छिपाव</span></div>
+  <p class="gist">अपनी मौलिकता दिखाकर भीड़ से अलग दिखना महँगा पड़ता है; सामान्य व्यवहार करके सुरक्षित रहें।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>लोग उन लोगों से डरते और नफ़रत करते हैं जो सबसे अलग दिखते हैं। यदि आप अपनी बुद्धि या भिन्नता को ज़ोर-शोर से दिखाते हैं, तो भीड़ आपको अलग कर देती है। इसलिए मन में जो चाहें सोचें, पर बाहर से सामान्य व्यवहार करें, ताकि लोग आपको अपना समझें।</p><p>यह नियम अवसरवाद नहीं, बुद्धिमत्ता है — भीड़ का विश्वास जीतने का तरीका। अपनी भिन्नता को छिपाकर आप सुरक्षित रहते हैं और धीरे-धीरे अपना असर बढ़ाते हैं। जो सबसे अलग दिखता है, वह अकेला पड़ जाता है; जो भीड़ का हिस्सा दिखता है, वह भीतर से बदलाव ला सकता है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>अनेक सुधारकों ने बाहर से सामान्य जीवन जिया, पर भीतर अपने विचार सुरक्षित रखे।</li><li>राजनीति में नेता भीड़ के अनुरूप व्यवहार करके ही बदलाव ला पाते हैं।</li><li>आधुनिक कार्यस्थल में जो अपनी भिन्नता अत्यधिक दिखाता है, उसे अलग-थलग कर दिया जाता है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>सामाजिक या व्यावसायिक दायरे में सामान्य व्यवहार बनाए रखें।</li><li>अपनी भिन्नता को चुनिंदा लोगों के साथ ही साझा करें।</li><li>भीड़ के साथ घुलकर अपना असर धीरे-धीरे बढ़ाएँ।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>अत्यधिक ढलना अपनी पहचान खो देता है; अनुरूपता और प्रामाणिकता में संतुलन रखें।</p></aside>
+</article>
+<article class="law" id="law-39" style="--tc:#6d7b3a">
+  <header class="law-head">
+    <div class="law-num">39</div>
+    <div class="law-titles">
+      <h3 class="law-hi">मछली पकड़ने के लिए पानी को गड्ढा करें</h3>
+      <div class="law-en">Stir Up Waters to Catch Fish</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">आत्म-संयम व स्वतंत्रता</span></div>
+  <p class="gist">शांत पानी में शिकार नहीं मिलता; भावनाओं और अशांति को भड़काकर प्रतिद्वंद्वी को भ्रमित करें।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>जब सब कुछ शांत हो, तो कोई अवसर नहीं होता। इसलिए भावनाओं को भड़काकर और अशांति फैलाकर शत्रु को अपने आप को प्रकट करने पर मजबूर करें। क्रोध, भय और घबराहट में लोग गलतियाँ करते हैं और अपने इरादे खोल देते हैं।</p><p>यह नियम कहता है कि कभी-कभी शांति की रक्षा करने से बेहतर है स्थिति को उबाल देना, ताकि शत्रु अपने पत्ते खोल दे। जब दूसरे भावनाओं में बहें, तब आप शांत रहें और उनकी गलती का लाभ उठाएँ। पर यह कला संयम की माँग करती है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>कूटनीति में कभी-कभी स्थिति को अस्थिर करके शत्रु को गलती करने पर मजबूर किया जाता है।</li><li>बाज़ार में अफ़वाह फैलाकर कुछ लोग शेयर कीमतों को हिला देते हैं और लाभ कमाते हैं।</li><li>राजनीति में विरोधी को भड़काकर उसकी असली मंशा उजागर कराई जाती है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>शत्रु को भावनाओं में बहने दें और शांत रहकर उसकी गलती देखें।</li><li>बातचीत में अस्थिरता पैदा करके दूसरे की असली ज़रूरत समझें।</li><li>अपने शांत स्वभाव को शक्ति बनाएँ, दूसरों की उत्तेजना को नियंत्रित करें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>अशांति फैलाना नुकसानदेह भी हो सकता है और आप पर वापस आ सकता है; इसका उपयोग सोच-समझकर करें।</p></aside>
+</article>
+<article class="law" id="law-40" style="--tc:#6d7b3a">
+  <header class="law-head">
+    <div class="law-num">40</div>
+    <div class="law-titles">
+      <h3 class="law-hi">मुफ़्त की चीज़ से बचें</h3>
+      <div class="law-en">Despise the Free Lunch</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">आत्म-संयम व स्वतंत्रता</span></div>
+  <p class="gist">जो मुफ़्त मिलता है, उसकी छिपी कीमत होती है; हर उपहार और छूट के पीछे स्वार्थ छिपा होता है।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>जो चीज़ मुफ़्त लगती है, उसका मूल्य कहीं और चुकाया जाता है। मुफ़्त उपहार, छूट और लाभ अक्सर आपको बाँधने, प्रभावित करने या कर्ज़दार बनाने का साधन होते हैं। इसलिए मुफ़्त चीज़ों से सावधान रहें और उनकी असली कीमत समझें।</p><p>शक्ति उसी में है जो अपनी स्वतंत्रता बनाए रखे और किसी का कर्ज़दार न बने। जो हर उपहार को स्वीकार करता है, वह धीरे-धीरे बंध जाता है। इसलिए जहाँ आवश्यक हो, वहाँ अपना मूल्य चुकाएँ और स्वतंत्र रहें। बुद्धिमान व्यक्ति मुफ़्त का लालच नहीं करता।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>अनेक लोग मुफ़्त उपहार या लाभ लेकर उसके कर्ज़ और प्रभाव में बंध जाते हैं।</li><li>व्यापार में भारी शुरुआती छूट बाद में ऊँची कीमत और शर्तों के साथ आती है।</li><li>राजनीति में मुफ़्त सहयोग अक्सर भविष्य में वफ़ादारी की माँग बन जाता है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>मुफ़्त उपहार या छूट स्वीकार करने से पहले उसकी छिपी कीमत सोचें।</li><li>अपनी स्वतंत्रता बनाए रखने के लिए ज़रूरी मूल्य चुकाएँ।</li><li>व्यापार में सस्ती पेशकश के पीछे की शर्तें पढ़ें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>कभी-कभी मदद और उपहार सच्ची भावना से भी आते हैं; हर चीज़ को संदेह की नज़र से न देखें।</p></aside>
+</article>
+<article class="law" id="law-41" style="--tc:#b07d2b">
+  <header class="law-head">
+    <div class="law-num">41</div>
+    <div class="law-titles">
+      <h3 class="law-hi">किसी महान व्यक्ति के पदचिह्नों पर सीधे न चलें</h3>
+      <div class="law-en">Avoid Stepping Into a Great Man&#x27;s Shoes</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">दरबारी कूटनीति</span></div>
+  <p class="gist">महान पूर्वज की जगह लेने से आपकी तुलना उससे होती है और आप फीके पड़ते हैं; अपना अलग रास्ता बनाएँ।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>जो व्यक्ति किसी महान पूर्वज या नेता की जगह सीधे लेता है, वह उसकी छाया में रहता है और उससे तुलना में हमेशा कम दिखता है। चाहे आप कितने ही योग्य हों, लोग पहले के महान व्यक्ति की याद में आपको नीचा आँकते हैं। इसलिए उसके पदचिह्नों पर चलने से बचें।</p><p>अपनी नई भूमिका में कुछ बदलाव लाएँ, अपनी पहचान बनाएँ, और पहले की तुलना से बचें। सफल उत्तराधिकारी वे होते हैं जो पुरानी विरासत का सम्मान करते हुए भी अपना अलग रास्ता बनाते हैं। बेहतर है कि आप पहले की शुरुआत से आगे अपनी नई शुरुआत करें।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>कई सफल नेताओं के उत्तराधिकारी उनकी छाया में दबकर असफल हुए।</li><li>कंपनियों में संस्थापक के बाद आए CEO को सफल होने के लिए नया रास्ता अपनाना पड़ता है।</li><li>खेल में महान खिलाड़ी के बाद आने वाले को अलग पहचान बनानी होती है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>किसी की जगह लेते समय अपना अलग रास्ता और पहचान बनाएँ।</li><li>पुरानी विरासत का सम्मान करें, पर उसकी नकल न करें।</li><li>तुलना से बचने के लिए नए सुधार और दिशा लाएँ।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>कभी-कभी पुरानी व्यवस्था को बनाए रखना ज़रूरी होता है; बदलाव को विवेक से लाएँ।</p></aside>
+</article>
+<article class="law" id="law-42" style="--tc:#a63d40">
+  <header class="law-head">
+    <div class="law-num">42</div>
+    <div class="law-titles">
+      <h3 class="law-hi">गड़रिये पर चोट करें, भेड़ें तितर-बितर हो जाएँगी</h3>
+      <div class="law-en">Strike the Shepherd and the Sheep Will Scatter</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">शत्रु व मित्र</span></div>
+  <p class="gist">असली शक्ति नेता में होती है; नेता को हटाओ तो समूह स्वयं बिखर जाएगा।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>हर समूह की असली शक्ति उसके नेता में होती है। यदि आप समूह के सदस्यों से एक-एक करके लड़ेंगे, तो बहुत समय और शक्ति लगेगी। इसके विपरीत, यदि आप नेता को हटा दें या उसका प्रभाव खत्म कर दें, तो शेष समूह अपने आप बिखर जाएगा।</p><p>इसलिए किसी विरोध का मुकाबला करते समय उसके स्रोत, उसके प्रेरक और उसके नेता को पहचानें। जड़ पर चोट करें, शाखाओं पर नहीं। पर यह नियम सोच-समझकर लागू करें, क्योंकि किसी का नेतृत्व नष्ट करना गहरा नुकसान भी कर सकता है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>इतिहास में विद्रोह को कुचलने के लिए अक्सर उसके नेताओं को ही निशाना बनाया जाता था।</li><li>कंपनी में किसी विरोध को रोकने के लिए उसके मुख्य प्रेरक को साधा जाता है।</li><li>सेना में सेनापति के गिरने पर सैनिक बिखर जाते हैं।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>किसी समस्या का समाधान करते समय उसके मूल कारण और प्रेरक पर ध्यान दें।</li><li>विरोध या प्रतिस्पर्धा में उसके केंद्रीय व्यक्ति को समझें।</li><li>अपनी टीम में मजबूत नेतृत्व बनाए रखें, ताकि वह बिखरे नहीं।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>किसी के नेतृत्व को नष्ट करना नैतिक और कानूनी सीमाओं में रहकर करें; यह नियम दुर्भावना का बहाना न बने।</p></aside>
+</article>
+<article class="law" id="law-43" style="--tc:#a63d40">
+  <header class="law-head">
+    <div class="law-num">43</div>
+    <div class="law-titles">
+      <h3 class="law-hi">दूसरों के मन और हृदय पर काम करें</h3>
+      <div class="law-en">Work on the Hearts and Minds of Others</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">शत्रु व मित्र</span></div>
+  <p class="gist">बल से लोग आज्ञा मानते हैं, पर भावना और विश्वास से वे सच्चे अनुयायी बनते हैं।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>बल और दबाव से लोग केवल बाहर से झुकते हैं, भीतर से नहीं। पर जब आप उनके दिल और दिमाग को जीत लेते हैं, तो वे स्वेच्छा से आपके साथ चलते हैं। इसलिए लोगों की भावनाओं, विश्वासों और ज़रूरतों को समझें और उनसे जुड़ें।</p><p>जो अपने सहयोगियों को भावनात्मक रूप से अपना बना लेता है, उसकी शक्ति स्थायी होती है। दया, विश्वास और साझा उद्देश्य से लोग आपके बन जाते हैं। इसलिए लोगों को केवल औज़ार न मानें, बल्कि उनके दिलों को छुएँ — यही असली शक्ति है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>महात्मा गांधी ने लोगों के हृदय और विश्वास को जीतकर स्वतंत्रता आंदोलन खड़ा किया।</li><li>सफल नेता अपनी टीम की भावनाओं से जुड़कर वफ़ादारी पाते हैं।</li><li>कुछ कंपनियाँ कर्मचारियों की भावनात्मक ज़रूरतें पूरी करके उन्हें जोड़े रखती हैं।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>सहयोगियों की भावनाओं और ज़रूरतों को समझें।</li><li>साझा उद्देश्य और विश्वास गढ़ें।</li><li>दया और सम्मान से लोगों का दिल जीतें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>भावनाओं से खेलना धोखा बन सकता है; सच्ची समझ और सहानुभूति से जुड़ें, हेरफेर से नहीं।</p></aside>
+</article>
+<article class="law" id="law-44" style="--tc:#7d5a3c">
+  <header class="law-head">
+    <div class="law-num">44</div>
+    <div class="law-titles">
+      <h3 class="law-hi">दर्पण प्रभाव से निःशस्त्र और विक्षुब्ध करें</h3>
+      <div class="law-en">Disarm and Infuriate With the Mirror Effect</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">रहस्य व छिपाव</span></div>
+  <p class="gist">प्रतिद्वंद्वी की चालों को उसी पर लौटाकर उसे भ्रमित करें; उसकी नकल उसे पागल कर देती है।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>जब आप किसी की चालों, भावनाओं या व्यवहार को उसी पर दर्पण की तरह लौटा देते हैं, तो वह निःशस्त्र हो जाता है। वह आपको पढ़ नहीं पाता और भ्रमित होकर गलती करता है। उसकी अपनी चालें उसी पर लागू होने से वह क्रोधित और अस्थिर हो जाता है।</p><p>दर्पण प्रभाव के दो रूप हैं — पहला, दूसरे की नकल करके उसे यह दिखाना कि उसका व्यवहार कैसा लगता है; दूसरा, उसकी चालों को पलटकर उसी पर लगाना। इससे वह अपनी नीति पर ही शर्मिंदा और क्रुद्ध होता है। जो शांत रहकर दर्पण बन जाता है, वह जीत जाता है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>कूटनीति में कभी-कभी शत्रु की ही नीति लौटाकर उसे शर्मिंदा किया जाता है।</li><li>बातचीत में दूसरे की हठीली चालों को हूबहू लौटाना उसे असहज कर देता है।</li><li>खेल में विरोधी की रणनीति की नकल उसके आत्मविश्वास को तोड़ देती है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>दूसरे की चालों का जवाब उसी की शैली में दें।</li><li>भावनाओं पर शांत रहकर प्रतिद्वंद्वी को अस्थिर करें।</li><li>बातचीत में उनकी ही शर्तें लौटाकर उन्हें समझाएँ।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>नकल और दर्पण को हमेशा सोच-समझकर लागू करें; यह विरोध को और भड़का भी सकता है।</p></aside>
+</article>
+<article class="law" id="law-45" style="--tc:#b07d2b">
+  <header class="law-head">
+    <div class="law-num">45</div>
+    <div class="law-titles">
+      <h3 class="law-hi">बदलाव की बात करें, पर एक बार में बहुत ज़्यादा सुधार न करें</h3>
+      <div class="law-en">Preach the Need for Change, but Never Reform Too Much at Once</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">दरबारी कूटनीति</span></div>
+  <p class="gist">लोग बदलाव चाहते हैं, पर पुरानी आदतों और परंपराओं से चिपके रहते हैं; धीरे-धीरे सुधार करें।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>लोग बदलाव की बात तो करते हैं, पर जब वह उनकी आदतों और परंपराओं को छूता है, तो वे विरोध करने लगते हैं। इसलिए एक साथ बहुत बड़ा बदलाव करना खतरनाक होता है — यह जनता और दरबारियों को भड़का सकता है।</p><p>बुद्धिमान सुधारक पुरानी व्यवस्था को बनाए रखते हुए धीरे-धीरे बदलाव लाता है। वह नए की वकालत करता है, पर पुराने का सम्मान भी करता है। इससे लोग उसे स्वीकार कर पाते हैं। इसलिए सुधार को धीरे-धीरे, चरणबद्ध तरीके से लागू करें, ताकि लोग उसे अपना सकें।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>अनेक सुधारकों ने एक साथ बड़े बदलाव करके जनता और दरबार का विरोध झेला।</li><li>कंपनियाँ धीरे-धीरे नई तकनीक अपनाती हैं, ताकि कर्मचारी उसे स्वीकार कर सकें।</li><li>समाज सुधार आंदोलन जब धीरे-धीरे चले, तो वे अधिक टिकाऊ साबित हुए।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>बड़ा बदलाव छोटे-छोटे चरणों में लागू करें।</li><li>नए की वकालत करते हुए पुराने मूल्यों का सम्मान करें।</li><li>बदलाव के लिए लोगों को तैयार करें, उन पर थोपें नहीं।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>कभी-कभी तेज़ और आवश्यक बदलाव अनिवार्य होता है; धीमेपन को बहाना न बनाएँ।</p></aside>
+</article>
+<article class="law" id="law-46" style="--tc:#c9a227">
+  <header class="law-head">
+    <div class="law-num">46</div>
+    <div class="law-titles">
+      <h3 class="law-hi">कभी अत्यधिक परिपूर्ण न दिखें</h3>
+      <div class="law-en">Never Appear Too Perfect</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">छवि व प्रतिष्ठा</span></div>
+  <p class="gist">अत्यधिक परिपूर्ण व्यक्ति से लोग ईर्ष्या और डर महसूस करते हैं; थोड़ी कमज़ोरी दिखाकर उन्हें सहज करें।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>अत्यधिक परिपूर्ण दिखना ईर्ष्या और डर पैदा करता है। लोग उनसे चिढ़ते हैं जो हर मामले में बेहतर और निर्दोष दिखते हैं। इसलिए समय-समय पर अपनी छोटी कमज़ोरी, भूल या अवगुण दिखाकर लोगों को सहज करें।</p><p>यह आपको अधिक मानवीय और सहज बनाता है, जिससे लोग आपसे जुड़ पाते हैं। अनेक बुद्धिमान लोग जानबूझकर अपनी छोटी कमज़ोरियाँ दिखाते हैं, ताकि ईर्ष्या कम हो। परिपूर्णता का दिखावा लोगों को दूर करता है, जबकि थोड़ी सच्ची कमज़ोरी उन्हें अपने पास लाती है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>अनेक प्रतिभाशाली लोगों ने अपनी छोटी कमज़ोरियाँ दिखाकर ईर्ष्या कम की।</li><li>कुछ नेता जनता के बीच छोटी-छोटी सामान्य आदतें दिखाकर जुड़ाव बनाते हैं।</li><li>आधुनिक दौर में बहुत बड़ी सफलता दिखाने वालों की आलोचना भी बढ़ जाती है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>समय-समय पर अपनी छोटी कमज़ोरी स्वीकार करें।</li><li>अपनी सफलता को संतुलित ढंग से पेश करें, दिखावा न करें।</li><li>सहज और मानवीय बनें, ताकि लोग जुड़ सकें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>अत्यधिक कमज़ोरी दिखाना आपकी साख गिरा सकता है; संतुलन रखें।</p></aside>
+</article>
+<article class="law" id="law-47" style="--tc:#3f5f8a">
+  <header class="law-head">
+    <div class="law-num">47</div>
+    <div class="law-titles">
+      <h3 class="law-hi">लक्ष्य से आगे न बढ़ें; जीत में रुकना सीखें</h3>
+      <div class="law-en">Do Not Go Past the Mark You Aimed For; In Victory, Learn When to Stop</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">समय व मंचन</span></div>
+  <p class="gist">जीत के क्षण में अत्यधिक लालच और दंभ हार में बदल जाता है; सही समय पर रुकना सीखें।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>जीत के शिखर पर व्यक्ति में दंभ और अत्यधिक आत्मविश्वास भर जाता है। वह और आगे बढ़ना चाहता है, पर यही लालच उसका पतन बन जाता है। इसलिए सफलता के क्षण में ही रुक जाना सीखें — जो लक्ष्य पूरा हो गया, उससे आगे न बढ़ें।</p><p>अत्यधिक शक्ति और सफलता शत्रु बनाती है और असंतुलन पैदा करती है। इसलिए जीत के बाद संतुलन बनाएँ, दूसरों को भी स्थान दें, और आगे बढ़ने की लालच पर काबू रखें। इतिहास में अनेक विजेता अपनी अत्यधिक लालच से हार गए। रुकना भी एक कला है।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>अनेक विजेता सेनापति अत्यधिक आगे बढ़कर अपनी जीत गँवा बैठे।</li><li>व्यापार में एक सफल उत्पाद के बाद अत्यधिक विस्तार कंपनियों को डुबो देता है।</li><li>शतरंज में जीत के लोभ में अत्यधिक आगे बढ़ना अक्सर हार बन जाता है।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>लक्ष्य पूरा होते ही रुक जाएँ और स्थिति सुदृढ़ करें।</li><li>जीत के बाद संतुलन और उदारता बनाए रखें।</li><li>लालच पर काबू रखें, अत्यधिक विस्तार से बचें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>कभी-कभी अवसर का पूरा लाभ लेना भी ज़रूरी है; रुकने और आगे बढ़ने में विवेक रखें।</p></aside>
+</article>
+<article class="law" id="law-48" style="--tc:#7d5a3c">
+  <header class="law-head">
+    <div class="law-num">48</div>
+    <div class="law-titles">
+      <h3 class="law-hi">निराकार/अनिश्चित रूप धारण करें</h3>
+      <div class="law-en">Assume Formlessness</div>
+    </div>
+  </header>
+  <div class="law-meta"><span class="chip">रहस्य व छिपाव</span></div>
+  <p class="gist">जो रूप निश्चित हो जाता है, वह पकड़ा जा सकता है; लचीले और अनिश्चित रहें, ताकि कोई आपको नियंत्रित न कर सके।</p>
+  <div class="law-grid">
+    <section class="blk blk-detail"><h4>व्याख्या</h4><p>पानी का कोई निश्चित रूप नहीं होता, इसीलिए उसे पकड़ना कठिन है। इसी तरह जो व्यक्ति किसी एक निश्चित रूप, नियम या पहचान में बंध जाता है, उसे शत्रु आसानी से पढ़ और नियंत्रित कर लेता है। इसलिए लचीले, गतिशील और अनिश्चित रहें।</p><p>जब आपका कोई निश्चित ढाँचा न हो, तो शत्रु आपका अंदाज़ा नहीं लगा सकता और आप पर हावी नहीं हो सकता। परिस्थिति के अनुसार बदलें, हर स्थिति में ढलें, और कभी पूरी तरह प्रकट न हों। यह शक्ति का अंतिम नियम है — सभी नियमों से ऊपर उठकर, आवश्यकता के अनुसार अपना रूप बदलना।</p></section>
+    <section class="blk"><h4>उदाहरण</h4><ul><li>पानी की तरह ढलने वाले रणनीतिकार हर परिस्थिति में अनुकूल हो जाते हैं।</li><li>माओ ज़ेडोंग ने छापामार युद्ध की लचीली रणनीति से बड़ी सेना को हराया।</li><li>सफल व्यापारी बाज़ार के बदलाव के साथ अपनी रणनीति बदलते रहते हैं।</li></ul></section>
+    <section class="blk"><h4>व्यावहारिक उपयोग</h4><ul><li>किसी एक निश्चित ढाँचे या पहचान में न बंधें।</li><li>परिस्थिति के अनुसार अपनी रणनीति बदलें।</li><li>शत्रु को अपना अंदाज़ा न लगाने दें; लचीले और अनिश्चित रहें।</li></ul></section>
+  </div>
+  <aside class="caution"><h4>सावधानी / उलटा पक्ष</h4><p>अत्यधिक बदलाव भरोसा तोड़ सकता है; सिद्धांत स्थिर रखें, रणनीति लचीली।</p></aside>
+</article>
+
+  <footer>
+    <p>यह पृष्ठ रॉबर्ट ग्रीन की “The 48 Laws of Power” पर आधारित एक अध्ययन-सामग्री है, जिसे हिंदी नोट्स, उदाहरण व माइंडमैप के रूप में संकलित किया गया है। उदाहरण ऐतिहासिक एवं सामान्य आधुनिक परिस्थितियों से लिए गए हैं और केवल समझ बढ़ाने के लिए हैं। शक्ति के साधनों का उपयोग अपने नैतिक मूल्यों और स्थानीय कानूनों के अनुरूप करें।</p>
+  </footer>
+</main>
+</div>
+<a class="totop" href="#top" aria-label="ऊपर जाएँ">↑</a>
+</body>
+</html>
